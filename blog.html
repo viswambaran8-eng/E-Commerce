@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./blog.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <div class="container1">
+          <h3>Welcome to Stackly – Shopping Service Connect and Enjoy</h3>
+        </div>
+        <div class="container2">
+          <div>
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>(123)456-7890</p>
+          </div>
+          <div>
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support@stackly.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="header2">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./Assets/logo.webp" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="div">
+          <nav>
+            <ul>
+              <li class="dropdown">
+                <a href="./index.html">Home</a>
+
+                <!-- <span class="drop-toggle">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span> -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="./index2.html">Home 2</a></li>
+                </ul>
+              </li>
+
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./service.html">Services</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <!-- <li><a href="./dashboard.html">Dashboard</a></li> -->
+            </ul>
+          </nav>
+
+          <div class="icons">
+            <div
+              class="cart-trigger"
+              onclick="toggleCart()"
+              style="
+                cursor: pointer;
+                color: #90ee90;
+                position: relative;
+                font-size: 24px;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                id="cart-count"
+                style="
+                  position: absolute;
+                  top: -10px;
+                  right: -10px;
+                  background: white;
+                  color: black;
+                  font-size: 12px;
+                  padding: 2px 6px;
+                  border-radius: 50%;
+                  font-weight: bold;
+                "
+                >0</span
+              >
+            </div>
+
+            <div class="login">
+              <a href="./login.html">
+                <button class="log-btn">Login</button>
+              </a>
+            </div>
+
+            <div class="mobilebar">
+              <div class="hamburger-box">
+                <div class="hamburger">
+                  <div class="line line1"></div>
+                  <div class="line line2"></div>
+                  <div class="line line3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li class="has-dropdown menu-item">
+          <div class="dropdown-header">
+            <a href="./index.html">Home</a>
+            <!-- <span class="drop-caret" id="home-caret">▾</span> -->
+          </div>
+          <!-- <ul class="submenu" id="home-dropdown">
+            <li><a href="./index2.html">Home 2</a></li>
+          </ul> -->
+        </li>
+
+        <li class="menu-item">
+          <a href="./about.html">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="./service.html">Services</a>
+        </li>
+        <li class="menu-item">
+          <a href="./blog.html">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="./contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="menu-item">
+          <a href="./dashboard.html">Dashboard</a>
+        </li> -->
+        <li class="menu-item">
+          <a href="./login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-login">
+        <!-- <a href="./app.html">
+            <button class="login-btn">Buy Now</button>
+          </a> -->
+      </div>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2 style="color: #90ee90">Shopping Cart</h2>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p style="text-align: center; margin-top: 50px; color: #666">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+          "
+        >
+          <span>Total:</span>
+          <span style="color: #90ee90; font-weight: bold"
+            >$<span id="total-price">0</span></span
+          >
+        </div>
+        <a href="./error.html">
+          <button
+          class="login-btn"
+          style="width: 100%; background: #90ee90; color: black; border: none"
+        >
+          Checkout Now
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="blog-hero">
+      <div class="hero-collage-base">
+        <div class="collage-item item-1">
+          <img
+            src="./Assets/b1_11zon.webp"
+            alt="Fashion Trend"
+          />
+        </div>
+        <div class="collage-item item-2">
+          <img
+            src="./Assets/b2_11zon.webp"
+            alt="Tech Device"
+          />
+        </div>
+        <div class="collage-item item-3">
+          <img
+            src="./Assets/b3_11zon_11zon.webp"
+            alt="Shopping Style"
+          />
+        </div>
+      </div>
+
+      <div class="hero-floating-tags">
+        <span class="blog-tag tag-1">#Fashion</span>
+        <span class="blog-tag tag-2">#TechInsigths</span>
+        <span class="blog-tag tag-3">#Trends</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-header">
+          <h1 class="hero-title">
+            Trends, <br />
+            Tips & <span class="lawn-green-text">Insights</span>
+          </h1>
+          <p class="hero-subtitle">
+            Stay updated with the latest fashion, tech, and shopping trends.
+            Curated for the modern digital lifestyle.
+          </p>
+          <div class="btn">
+            <a href="./error.html">
+              <button>Know More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="featured-blog-section">
+      <div class="featured-container">
+        <div class="featured-card">
+          <div class="featured-image-wrap">
+            <img
+              src="./Assets/blog-featured_11zon.webp"
+              alt="Tech 2026"
+            />
+            <div class="featured-overlay"></div>
+          </div>
+
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="meta-tag">FEATURED</span>
+              <p>By Admin <span class="dot">•</span> 5 min read</p>
+            </div>
+            <h2 class="featured-title">
+              Top Gadgets You <br />
+              Must Own in <span class="lawn-green-text">2026</span>
+            </h2>
+
+            <div class="btn">
+             <a href="./error.html">
+               <button>Read Full Story</button>
+             </a>
+            </div>
+          </div>
+
+          <div class="corner-lt"></div>
+          <div class="corner-rb"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-feed-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Latest <span class="lawn-green-text">Articles</span>
+        </h2>
+      </div>
+
+      <div class="blog-categories">
+        <div class="category-wrapper">
+          <button class="cat-pill active" data-category="all">
+            <span class="cat-dot"></span> All Posts
+          </button>
+          <button class="cat-pill" data-category="fashion">
+            <span class="cat-dot"></span> Fashion
+          </button>
+          <button class="cat-pill" data-category="technology">
+            <span class="cat-dot"></span> Technology
+          </button>
+          <button class="cat-pill" data-category="lifestyle">
+            <span class="cat-dot"></span> Lifestyle
+          </button>
+          <button class="cat-pill" data-category="deals">
+            <span class="cat-dot"></span> Deals
+          </button>
+        </div>
+      </div>
+
+      <div class="blog-grid" id="blogGrid">
+        <div class="blog-card" data-category="fashion">
+          <div class="card-img">
+            <img
+              src="./Assets/Streetwear_11zon.webp"
+              alt="Streetwear"
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Fashion</span>
+            <h3>Future of Streetwear 2026</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="technology">
+          <div class="card-img">
+            <img
+              src="./Assets/AI_11zon_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Technology</span>
+            <h3>AI in Everyday Hardware</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="lifestyle">
+          <div class="card-img">
+            <img
+              src="./Assets/Minimalist Digital Space_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Lifestyle</span>
+            <h3>Minimalist Digital Spaces</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="deals">
+          <div class="card-img">
+            <img
+              src="./Assets/Weekly Tech Discounts_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Deals</span>
+            <h3>Weekly Tech Discounts</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="fashion">
+          <div class="card-img">
+            <img
+              src="./Assets/Sustainable Fabric Tech_11zon_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Fashion</span>
+            <h3>Sustainable Fabric Tech</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="technology">
+          <div class="card-img">
+            <img
+              src="./Assets/2026 Smart Home Guide_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Technology</span>
+            <h3>The 2026 Smart Home Guide</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="lifestyle">
+          <div class="card-img">
+            <img
+              src="./Assets/Holistic Workspace Design_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Lifestyle</span>
+            <h3>Holistic Workspace Design</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="deals">
+          <div class="card-img">
+            <img
+              src="./Assets/Early Bird Gadget Offers_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Deals</span>
+            <h3>Early Bird Gadget Offers</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="fashion">
+          <div class="card-img">
+            <img
+              src="./Assets/Cyberpunk Styles Redefine_11zon.webp"
+              alt=""
+              style="object-position: top center;"
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Fashion</span>
+            <h3>Cyberpunk Styles Redefined</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="technology">
+          <div class="card-img">
+            <img
+              src="./Assets/b1_11zon.webp"
+              alt=""
+              style="object-position: top center;"
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Technology</span>
+            <h3>Neural-Link Wearables</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="lifestyle">
+          <div class="card-img">
+            <img
+              src="./Assets/b2_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Lifestyle</span>
+            <h3>Digital Detox Retreats</h3>
+          </div>
+        </div>
+        <div class="blog-card" data-category="deals">
+          <div class="card-img">
+            <img
+              src="./Assets/b3_11zon_11zon.webp"
+              alt=""
+            />
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Deals</span>
+            <h3>Clearance on Gen-Alpha Tech</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="last">
+        <div class="trending-sidebar">
+  <div class="sidebar-header">
+    <h3 class="sidebar-title"><span class="lawn-green-text">//</span> TRENDING_TOPICS</h3>
+  </div>
+
+  <div class="trending-list">
+    <a href="./error.html" class="trending-item">
+      <div class="item-rank">01</div>
+      <div class="item-body">
+        <h4>Best Smartphones Under ₹20,000</h4>
+        <p>Performance benchmarks & camera tests for 2026 models.</p>
+        <div class="trend-stats">
+          <span class="stat-tag">#Tech</span>
+          <span class="stat-tag">#Budget</span>
+        </div>
+      </div>
+      <div class="hover-indicator"></div>
+    </a>
+
+    <a href="./error.html" class="trending-item">
+      <div class="item-rank">02</div>
+      <div class="item-body">
+        <h4>Top Fashion Trends 2026</h4>
+        <p>Cyber-utility and sustainable tech-wear breakdown.</p>
+        <div class="trend-stats">
+          <span class="stat-tag">#Style</span>
+          <span class="stat-tag">#Trends</span>
+        </div>
+      </div>
+      <div class="hover-indicator"></div>
+    </a>
+
+    <a href="./error.html" class="trending-item">
+      <div class="item-rank">03</div>
+      <div class="item-body">
+        <h4>Budget Laptops Guide</h4>
+        <p>System requirements for remote work and heavy coding.</p>
+        <div class="trend-stats">
+          <span class="stat-tag">#Laptops</span>
+          <span class="stat-tag">#Work</span>
+        </div>
+      </div>
+      <div class="hover-indicator"></div>
+    </a>
+  </div>
+
+  <div class="sidebar-promo">
+    <div class="promo-content">
+      <span class="promo-label">LIVE FEED</span>
+      <h5>New Inventory Detected</h5>
+      <p>Gen-5 Hardware now in stock.</p>
+      <a href="./error.html">
+        <button class="promo-btn">Analyze Store</button>
+      </a>
+    </div>
+  </div>
+    </div>
+    </section>
+
+
+    <section class="blog-grid-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Latest <span class="lawn-green-text">Insights</span>
+        </h2>
+      </div>
+
+      <div class="masonry-container" id="masonryGrid">
+        <div class="masonry-item" data-category="technology">
+          <div class="masonry-content">
+            <div class="masonry-image">
+              <img
+                src="./Assets/Neural Interface Hardware_11zon_11zon.webp"
+                alt="Tech"
+              />
+              <div class="masonry-overlay">
+                <span class="read-more-btn">Read Entry</span>
+              </div>
+            </div>
+            <div class="masonry-info">
+              <div class="masonry-meta">
+                <span class="meta-author">Admin</span>
+                <span class="meta-dot"></span>
+                <span class="meta-time">5 min read</span>
+              </div>
+              <h3>The Future of Neural Interface Hardware</h3>
+              <p>
+                Exploring the boundary between organic systems and digital
+                processing units in 2026.
+              </p>
+              <div class="masonry-date">MARCH 25, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="lifestyle">
+          <div class="masonry-content">
+            <div class="masonry-image">
+              <img
+                src="./Assets/Digital Detox Protocols_11zon.webp"
+                alt="Lifestyle"
+              />
+              <div class="masonry-overlay">
+                <span class="read-more-btn">Read Entry</span>
+              </div>
+            </div>
+            <div class="masonry-info">
+              <div class="masonry-meta">
+                <span class="meta-author">Admin</span>
+                <span class="meta-dot"></span>
+                <span class="meta-time">3 min read</span>
+              </div>
+              <h3>Digital Detox Protocols</h3>
+              <p>
+                Systematic approaches to reducing screen latency in daily life.
+              </p>
+              <div class="masonry-date">MARCH 22, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="deals">
+          <div class="masonry-content">
+            <div class="masonry-image">
+              <img
+                src="./Assets/Gen-4 Wearables_11zon.webp"
+                alt="Flash Sale"
+              />
+              <div class="masonry-overlay">
+                <span class="read-more-btn">Shop The Drop</span>
+              </div>
+            </div>
+            <div class="masonry-info">
+              <div class="masonry-meta">
+                <span class="meta-author">Admin</span>
+                <span class="meta-dot"></span>
+                <span class="meta-time">2 min read</span>
+              </div>
+              <h3>Flash Protocol: Gen-4 Wearables</h3>
+              <p>
+                Exclusive 24-hour price reduction on all biometric hardware
+                units.
+              </p>
+              <div class="masonry-date">MARCH 26, 2026</div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="masonry-item" data-category="fashion">
+          <div class="masonry-content">
+            <div class="masonry-image">
+              <img
+                src="./Assets/E-commerce Store_11zon.webp"
+                alt="E-commerce Store"
+              />
+              <div class="masonry-overlay">
+                <span class="read-more-btn">View Collection</span>
+              </div>
+            </div>
+            <div class="masonry-info">
+              <div class="masonry-meta">
+                <span class="meta-author">Admin</span>
+                <span class="meta-dot"></span>
+                <span class="meta-time">6 min read</span>
+              </div>
+              <h3>Seasonal Inventory Optimization</h3>
+              <p>
+                Our curated list of essential technical apparel designed for
+                high-performance urban environments and extreme climate shifts.
+              </p>
+              <div class="masonry-date">MARCH 27, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand gsap-contact">
+          <div class="logo" style="margin-bottom: 20px">
+            <a href="./index.html">
+              <img
+                src="./Assets/logo.webp"
+                alt="Logo"
+                style="max-width: 180px"
+              />
+            </a>
+          </div>
+
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership and unlock a world of unlimited movies, TV shows, and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-links gsap-contact">
+          <h4>Quick Links</h4>
+
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./login.html">Login</a>
+        </div>
+        <!-- <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+        </div> -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>
+            Enter your email to create or restart your membership and unlock a
+            world of unlimited movies, TV shows, and more.
+          </p>
+          <form action="./error.html">
+            <div class="news-input">
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">→</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Innovations. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="./error.html">Privacy Policy</a>
+          <a href="./error.html">ISO Compliance</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- hero -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const tl = gsap.timeline();
+
+    // 1. Initial Reset
+    gsap.set(".blog-tag", { opacity: 0, scale: 0.5 });
+
+    // 2. Entrance Sequence
+    tl.to(".hero-title, .hero-subtitle", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "power4.out",
+    }).to(
+      ".blog-tag",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+      },
+      "-=0.5",
+    );
+
+    // 3. Function: Independent Parallax for the Collage Items
+    const initParallax = () => {
+      // Each item moves at a slightly different speed
+      gsap.to(".item-1", {
+        y: -50,
+        x: -20,
+        rotate: -2,
+        ease: "none",
+        scrollTrigger: { scrub: true },
+      });
+      gsap.to(".item-2", {
+        y: 60,
+        x: 10,
+        rotate: 5,
+        ease: "none",
+        scrollTrigger: { scrub: true },
+      });
+      gsap.to(".item-3", {
+        y: -40,
+        x: 25,
+        rotate: 12,
+        ease: "none",
+        scrollTrigger: { scrub: true },
+      });
+    };
+
+    // 4. Function: Independent Floating/Drifting for the Tags (Infinite Loop)
+    const initDriftingTags = () => {
+      gsap.to(".blog-tag", {
+        x: "random(-15, 15)",
+        y: "random(-20, 20)",
+        rotation: "random(-10, 10)",
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: 0.5,
+      });
+    };
+
+    // Start initialization
+    initParallax();
+    initDriftingTags();
+  });
+</script>
+
+<!-- 2 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const initFeaturedEntrance = () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".featured-blog-section",
+          start: "top 80%",
+        },
+      });
+
+      // 1. Reveal the main card
+      tl.to(".featured-card", {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+      })
+
+        // 2. Slide up the metadata and title
+        .from(
+          ".featured-content > *",
+          {
+            opacity: 1,
+            y: 30,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+          },
+          "-=1",
+        )
+
+        // 3. Flicker the Lawn Green accents
+        .from(
+          ".corner-lt, .corner-rb",
+          {
+            opacity: 1,
+            scale: 1.5,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          "-=0.5",
+        );
+    };
+
+    initFeaturedEntrance();
+  });
+</script>
+
+<!-- 3 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const pills = document.querySelectorAll(".cat-pill");
+    const cards = document.querySelectorAll(".blog-card");
+
+    // 1. Initial Staggered Entrance for Cards
+    const entranceAnim = () => {
+      gsap.to(".blog-card", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".blog-grid",
+          start: "top 80%",
+        },
+      });
+    };
+    entranceAnim();
+
+    // 2. Navigation & Filtering Logic
+    pills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        const targetCategory = pill.getAttribute("data-category");
+
+        // UI Update: Active Pill
+        pills.forEach((p) => p.classList.remove("active"));
+        pill.classList.add("active");
+
+        // Pill Bounce Effect
+        gsap.from(pill, {
+          scale: 0.9,
+          duration: 0.4,
+          ease: "elastic.out(1, 0.3)",
+        });
+
+        // Filtering Animation
+        const cardsToShow = [];
+        const cardsToHide = [];
+
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute("data-category");
+          if (targetCategory === "all" || cardCat === targetCategory) {
+            cardsToShow.push(card);
+          } else {
+            cardsToHide.push(card);
+          }
+        });
+
+        // Execute Filter
+        gsap.to(cardsToHide, {
+          opacity: 0,
+          scale: 0.8,
+          y: 20,
+          duration: 0.4,
+          display: "none",
+          ease: "power2.in",
+        });
+
+        gsap.to(cardsToShow, {
+          display: "block",
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power3.out",
+          delay: 0.2, // Wait for hide to finish
+        });
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const pills = document.querySelectorAll(".cat-pill");
+
+    // 1. Entrance Stagger
+    gsap.to(pills, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".blog-categories",
+        start: "top 90%",
+      },
+    });
+
+    // 2. Click Interaction
+    pills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        // Remove active from others
+        pills.forEach((p) => p.classList.remove("active"));
+
+        // Set current to active
+        pill.classList.add("active");
+
+        // GSAP "Power Surge" Flicker
+        const dot = pill.querySelector(".cat-dot");
+        gsap.fromTo(
+          dot,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.1, repeat: 3, yoyo: true, ease: "none" },
+        );
+
+        gsap.from(pill, {
+          scale: 0.95,
+          duration: 0.4,
+          ease: "elastic.out(1, 0.3)",
+        });
+      });
+    });
+  });
+</script>
+
+<!-- 4 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Entrance Stagger for Masonry Items
+    gsap.to(".masonry-item", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".masonry-container",
+        start: "top 85%",
+      },
+    });
+
+    // 2. Micro-interaction: Border Pulse on Hover
+    const items = document.querySelectorAll(".masonry-content");
+    items.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        gsap.to(item, {
+          boxShadow: "0 0 30px rgba(124, 252, 0, 0.2)",
+          duration: 0.3,
+        });
+      });
+      item.addEventListener("mouseleave", () => {
+        gsap.to(item, {
+          boxShadow: "0 0 0px rgba(124, 252, 0, 0)",
+          duration: 0.3,
+        });
+      });
+    });
+  });
+</script>
+
+<!-- 5 -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  if (typeof gsap === "undefined") return;
+
+  // 1. Sidebar Entrance
+  gsap.from(".trending-sidebar", {
+    opacity: 1,
+    x: 50,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".trending-sidebar",
+      start: "top 80%"
+    }
+  });
+
+  // 2. Stagger Items
+  gsap.from(".trending-item", {
+    opacity: 1,
+    y: 20,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out",
+    delay: 0.5
+  });
+
+  // 3. Flicker Promo Box
+  gsap.to(".promo-label", {
+    opacity: 0.3,
+    duration: 0.1,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 2
+  });
+});
+</script>

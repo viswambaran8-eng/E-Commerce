@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./about.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <div class="container1">
+          <h3>Welcome to Stackly – Shopping Service Connect and Enjoy</h3>
+        </div>
+        <div class="container2">
+          <div>
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>(123)456-7890</p>
+          </div>
+          <div>
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support@stackly.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="header2">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./Assets/logo.webp" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="div">
+          <nav>
+            <ul>
+              <li class="dropdown">
+                <a href="./index.html">Home</a>
+
+                <!-- <span class="drop-toggle">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span> -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="./index2.html">Home 2</a></li>
+                </ul>
+              </li>
+
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./service.html">Services</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <!-- <li><a href="./dashboard.html">Dashboard</a></li> -->
+            </ul>
+          </nav>
+
+          <div class="icons">
+            <div
+              class="cart-trigger"
+              onclick="toggleCart()"
+              style="
+                cursor: pointer;
+                color: #90ee90;
+                position: relative;
+                font-size: 24px;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                id="cart-count"
+                style="
+                  position: absolute;
+                  top: -10px;
+                  right: -10px;
+                  background: white;
+                  color: black;
+                  font-size: 12px;
+                  padding: 2px 6px;
+                  border-radius: 50%;
+                  font-weight: bold;
+                "
+                >0</span
+              >
+            </div>
+
+            <div class="login">
+              <a href="./login.html">
+                <button class="log-btn">Login</button>
+              </a>
+            </div>
+
+            <div class="mobilebar">
+              <div class="hamburger-box">
+                <div class="hamburger">
+                  <div class="line line1"></div>
+                  <div class="line line2"></div>
+                  <div class="line line3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li class="has-dropdown menu-item">
+          <div class="dropdown-header">
+            <a href="./index.html">Home</a>
+            <!-- <span class="drop-caret" id="home-caret">▾</span> -->
+          </div>
+          <!-- <ul class="submenu" id="home-dropdown">
+            <li><a href="./index2.html">Home 2</a></li>
+          </ul> -->
+        </li>
+
+        <li class="menu-item">
+          <a href="./about.html">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="./service.html">Services</a>
+        </li>
+        <li class="menu-item">
+          <a href="./blog.html">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="./contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="menu-item">
+          <a href="./dashboard.html">Dashboard</a>
+        </li> -->
+        <li class="menu-item">
+          <a href="./login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-login">
+        <!-- <a href="./app.html">
+            <button class="login-btn">Buy Now</button>
+          </a> -->
+      </div>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2 style="color: #90ee90">Shopping Cart</h2>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p style="text-align: center; margin-top: 50px; color: #666">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+          "
+        >
+          <span>Total:</span>
+          <span style="color: #90ee90; font-weight: bold"
+            >$<span id="total-price">0</span></span
+          >
+        </div>
+        <a href="./error.html">
+          <button
+            class="login-btn"
+            style="width: 100%; background: #90ee90; color: black; border: none"
+          >
+            Checkout Now
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="about-hero-section">
+      <div class="hero-bg-visual">
+        <div class="bg-img-lifestyle"></div>
+        <div class="bg-overlay-gradient"></div>
+        <div class="bg-geometric-texture"></div>
+      </div>
+
+      <div class="hero-content-wrap">
+        <div class="badge-row">
+          <span class="about-badge">SINCE 2026</span>
+        </div>
+        <h1 class="hero-title">
+          We’re <span class="neon-highlight">Redefining</span> Online Shopping
+        </h1>
+        <p class="hero-subtitle">
+          A vision built for next-gen performance, unmatched curation, and
+          instant gratification. Discover the story behind the standard.
+        </p>
+        <div class="hero-actions">
+          <a href="./error.html">
+            <button class="cta-primary-glow">Our Story</button>
+          </a>
+          <a href="./error.html">
+            <button class="cta-secondary-border">Meet the Team</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- <div class="scroll-down-indicator">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+      </div> -->
+    </section>
+
+    <section class="story-section">
+      <div class="story-container">
+        <div class="section-header">
+          <h2 class="gradient-title">
+            Our <span class="neon-text">Evolution</span>
+          </h2>
+          <p class="story-intro">
+            From a small tech garage to a global digital powerhouse, our journey
+            is fueled by a relentless obsession with quality.
+          </p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-line">
+            <div class="timeline-progress"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="milestone-content img-left">
+              <div class="img-col">
+                <div class="milestone-img">
+                  <img src="./Assets/the start_11zon.webp" alt="The Start" />
+                </div>
+              </div>
+              <div class="text-col">
+                <span class="milestone-year">2020</span>
+                <h3>The Spark</h3>
+                <p>
+                  We started with a mission to make quality products accessible.
+                  In a crowded market, we chose the path of premium curation
+                  over mass production.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="milestone-content img-right">
+              <div class="text-col">
+                <span class="milestone-year">2022</span>
+                <h3>Digital Shift</h3>
+                <p>
+                  We pivoted to a tech-first approach, integrating advanced
+                  UI/UX frameworks to ensure our users didn't just shop—they
+                  experienced the brand.
+                </p>
+              </div>
+              <div class="img-col">
+                <div class="milestone-img">
+                  <img
+                    src="./Assets/Digital Shift_11zon.webp"
+                    alt="Tech Evolution"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="milestone-content img-left">
+              <div class="img-col">
+                <div class="milestone-img">
+                  <img
+                    src="./Assets/global reach_11zon.webp"
+                    alt="Global Expansion"
+                  />
+                </div>
+              </div>
+              <div class="text-col">
+                <span class="milestone-year">2024</span>
+                <h3>Global Reach</h3>
+                <p>
+                  Crossing borders. We expanded our logistics network across 50+
+                  countries, bringing high-end tech to doorsteps in record time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="milestone-content img-right">
+              <div class="text-col">
+                <span class="milestone-year">2026</span>
+                <h3>Future Vision</h3>
+                <p>
+                  Today, we are redefining online shopping with AI-driven
+                  personalization and immersive neon-themed interfaces.
+                </p>
+              </div>
+              <div class="img-col">
+                <div class="milestone-img">
+                  <img src="./Assets/future vision_11zon.webp" alt="Future" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mv-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Our <span class="neon-text">Mission</span> and
+          <span class="neon-text">Vision</span>
+        </h2>
+      </div>
+      <div class="mv-container">
+        <div class="mv-card mission">
+          <div class="mv-icon">🎯</div>
+          <h2 class="mv-title">Our <span class="neon-text">Mission</span></h2>
+          <p class="mv-description">
+            To bridge the gap between high-end technology and daily life by
+            curating products that offer both superior performance and aesthetic
+            brilliance. We don't just sell gadgets; we provide the tools for a
+            digital lifestyle.
+          </p>
+          <div class="mv-bg-text">MISSION</div>
+        </div>
+
+        <div class="mv-card vision">
+          <div class="mv-icon">👁️</div>
+          <h2 class="mv-title">Our <span class="neon-text">Vision</span></h2>
+          <p class="mv-description">
+            To become the world's most trusted destination for next-gen
+            electronics, setting the standard for online shopping through
+            immersive UI, transparent logistics, and a community-first approach
+            to tech evolution.
+          </p>
+          <div class="mv-bg-text">VISION</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ws-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          What We <span class="neon-text">Crate</span>
+        </h2>
+      </div>
+
+      <div class="ws-grid">
+        <div class="ws-item">
+          <div class="ws-icon-box">💻</div>
+          <h3>Pro Laptops</h3>
+          <p>Performance-tuned machines for creators and devs.</p>
+        </div>
+        <div class="ws-item">
+          <div class="ws-icon-box">📱</div>
+          <h3>Smart Devices</h3>
+          <p>Next-gen phones and tablets with OLED brilliance.</p>
+        </div>
+        <div class="ws-item">
+          <div class="ws-icon-box">🎧</div>
+          <h3>Audio Gear</h3>
+          <p>Immersive soundscapes with active noise canceling.</p>
+        </div>
+        <div class="ws-item">
+          <div class="ws-icon-box">⌚</div>
+          <h3>Wearables</h3>
+          <p>Stay connected with advanced health tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Our <span class="neon-text">Roadmap</span>
+        </h2>
+      </div>
+
+      <div class="journey-wrapper">
+        <div class="journey-line"></div>
+
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-content">
+            <span class="j-year">2020</span>
+            <h3>The Foundation</h3>
+            <p>
+              Launched in a small studio with 3 developers and 1 big dream:
+              hardware that feels like software.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-content">
+            <span class="j-year">2022</span>
+            <h3>The Breakthrough</h3>
+            <p>
+              Reached 100k users and expanded our inventory to include
+              custom-built high-performance laptops.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-content">
+            <span class="j-year">2026</span>
+            <h3>Present Day</h3>
+            <p>
+              Leading the market in premium tech curation with 24/7 global
+              logistics and AI support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          The <span class="neon-text">Architects</span>
+        </h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="./Assets/t1.webp" alt="Team" />
+            <div class="team-socials">
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Alex Rivet</h4>
+            <p>Founder & CEO</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <img src="./Assets/team2_11zon.webp" alt="Team" />
+            <div class="team-socials">
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Sarah Chen</h4>
+            <p>Head of Design</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <img src="./Assets/t3.webp" alt="Team" />
+            <div class="team-socials">
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Vikram Sethi</h4>
+            <p>Chief Technology Officer</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <img src="./Assets/t4.webp" alt="Team" />
+            <div class="team-socials">
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="./error.html" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Elena Rodriguez</h4>
+            <p>Director of Growth</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          What <span class="neon-text">People</span> Say About Us
+        </h2>
+      </div>
+      <div class="testimonial-slider" id="t-slider">
+        <div class="t-card">
+          <p>
+            "The fastest shipping I've ever experienced. The packaging alone
+            feels like a premium product."
+          </p>
+          <h5>— James Wu, Tech Enthusiast</h5>
+        </div>
+        <div class="t-card">
+          <p>
+            "A community that actually cares about tech. Their support team
+            helped me configure my pro setup in minutes."
+          </p>
+          <h5>— Maria Garcia, Digital Artist</h5>
+        </div>
+      </div>
+    </section>
+
+    <section class="achievements-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Numbers That <span class="neon-text">Define</span> Us
+        </h2>
+        <p class="achievements-subtitle">
+          Behind every pixel and every delivery is a commitment to excellence
+          that has scaled beyond boundaries.
+        </p>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="count-wrapper">
+            <span class="view-count" data-target="50000">0</span
+            ><span class="plus">+</span>
+          </div>
+          <p class="count-label">Orders Delivered</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="count-wrapper">
+            <span class="view-count" data-target="20000">0</span
+            ><span class="plus">+</span>
+          </div>
+          <p class="count-label">Happy Customers</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="count-wrapper">
+            <span class="view-count" data-target="15">0</span
+            ><span class="plus">+</span>
+          </div>
+          <p class="count-label">Global Hubs</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="count-wrapper">
+            <span class="view-count" data-target="24">0</span
+            ><span class="plus">/7</span>
+          </div>
+          <p class="count-label">Expert Support</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand gsap-contact">
+          <div class="logo" style="margin-bottom: 20px">
+            <a href="./index.html">
+              <img
+                src="./Assets/logo.webp"
+                alt="Logo"
+                style="max-width: 180px"
+              />
+            </a>
+          </div>
+
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership and unlock a world of unlimited movies, TV shows, and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-links gsap-contact">
+          <h4>Quick Links</h4>
+
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./login.html">Login</a>
+        </div>
+        <!-- <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+        </div> -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>
+            Enter your email to create or restart your membership and unlock a
+            world of unlimited movies, TV shows, and more.
+          </p>
+          <form action="./error.html">
+            <div class="news-input">
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">→</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Innovations. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="./error.html">Privacy Policy</a>
+          <a href="./error.html">ISO Compliance</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- hero -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    initAboutHero();
+  });
+
+  function initAboutHero() {
+    if (typeof gsap === "undefined") return;
+
+    // Create a timeline for choreographed animation
+    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+
+    // 1. Initial State (Set opacity to prevent flash)
+    gsap.set(".hero-content-wrap > *", { opacity: 0 });
+
+    // 2. The Sequence
+    tl
+      // Slower, subtle zoom on the background image for "Rich" feel
+      .to(
+        ".bg-img-lifestyle",
+        {
+          scale: 1,
+          duration: 5,
+          ease: "sine.inOut",
+        },
+        0,
+      ) // Starts at time 0
+
+      // Staggered text reveal (Entrance opacity: 1)
+      .fromTo(
+        ".hero-content-wrap > *",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.5, stagger: 0.15 },
+        0.5, // Starts 0.5s into the timeline
+      )
+
+      // Pop the Neon Text separately for emphasis
+      .fromTo(
+        ".neon-highlight",
+        { textShadow: "0 0 0 rgba(57, 255, 20, 0)" },
+        {
+          textShadow: "0 0 25px rgba(57, 255, 20, 0.5)",
+          duration: 2,
+          ease: "power2.out",
+        },
+        1.5,
+      )
+
+      // Reveal the buttons with a 'back' ease
+      .fromTo(
+        ".hero-actions > *",
+        { opacity: 0, scale: 0.8, y: 20 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+        },
+        1.8,
+      )
+
+      // Fade in the scroll indicator last
+      .fromTo(
+        ".scroll-down-indicator",
+        { opacity: 1 },
+        { opacity: 1, duration: 1 },
+        2.5,
+      );
+  }
+</script>
+
+<!-- 2 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Vertical Line Progress
+    gsap.to(".timeline-progress", {
+      height: "100%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".timeline-wrapper",
+        start: "top 30%",
+        end: "bottom 70%",
+        scrub: true,
+      },
+    });
+
+    // 2. Individual Milestone Reveal
+    const milestones = document.querySelectorAll(".milestone-content");
+
+    milestones.forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          opacity: 1,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+  });
+</script>
+
+<!-- section-header -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const headerTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-header",
+        start: "top 85%", // Starts when header is near bottom
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    headerTL
+      // 1. Slide and Fade the whole title in
+      .fromTo(
+        ".gradient-title",
+        { opacity: 1, y: 30 },
+        { opacity: 1, y: 0, duration: 1, ease: "power4.out" },
+      );
+  });
+</script>
+
+<!-- 3 , 4 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Mission & Vision Entrance
+    gsap.fromTo(
+      ".mv-card",
+      {
+        opacity: 0,
+        y: 100,
+        rotateX: -15,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".mv-section",
+          start: "top 75%",
+        },
+      },
+    );
+
+    // 2. What We Sell Grid Stagger
+    gsap.fromTo(
+      ".ws-item",
+      {
+        opacity: 0,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".ws-grid",
+          start: "top 85%",
+        },
+      },
+    );
+  });
+</script>
+
+<!-- 5 , 6 , 7 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Journey Timeline Entrance
+    gsap.fromTo(
+      ".journey-item",
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.3,
+        duration: 1,
+        scrollTrigger: { trigger: ".journey-wrapper", start: "top 80%" },
+      },
+    );
+
+    // 2. Team Card Stagger Reveal
+    gsap.fromTo(
+      ".team-card",
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".team-grid", start: "top 75%" },
+      },
+    );
+
+    // 3. Testimonial Fade & Slide
+    gsap.fromTo(
+      ".t-card",
+      { opacity: 0, scale: 0.9, x: 100 },
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        stagger: 0.2,
+        duration: 1.2,
+        scrollTrigger: { trigger: ".testimonial-section", start: "top 70%" },
+      },
+    );
+
+    // 4. Dot Pulsing Animation (Infinite)
+    gsap.to(".journey-dot", {
+      boxShadow: "0 0 25px #39ff14, 0 0 5px #39ff14",
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+    });
+  });
+</script>
+
+<!-- 8 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector(".achievements-section");
+    const counters = document.querySelectorAll(".view-count");
+    const cards = document.querySelectorAll(".achievement-card");
+
+    if (!section || counters.length === 0) return;
+
+    // Function to format numbers with commas
+    const formatNumber = (num) => {
+      return Math.floor(num).toLocaleString();
+    };
+
+    const startCounterAnimation = () => {
+      // 1. Entrance animation for the cards
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+
+      // 2. Count-up logic for the numbers
+      counters.forEach((counter) => {
+        const target = +counter.getAttribute("data-target");
+        let countObj = { value: 0 };
+
+        gsap.to(countObj, {
+          value: target,
+          duration: 6, // Faster, punchier duration
+          ease: "power2.out",
+          onUpdate: () => {
+            counter.innerText = formatNumber(countObj.value);
+          },
+          onComplete: () => {
+            counter.innerText = formatNumber(target);
+          },
+        });
+      });
+    };
+
+    // Set initial state for cards
+    gsap.set(cards, { opacity: 0, y: 30 });
+
+    // Intersection Observer to trigger when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startCounterAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(section);
+  });
+</script>

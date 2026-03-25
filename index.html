@@ -1,0 +1,1921 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./index.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <div class="container1">
+          <h3>Welcome to Stackly – Shopping Service Connect and Enjoy</h3>
+        </div>
+        <div class="container2">
+          <div>
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>(123)456-7890</p>
+          </div>
+          <div>
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support@stackly.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="header2">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./Assets/logo.webp" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="div">
+          <nav>
+            <ul>
+              <li class="dropdown">
+                <a href="./index.html">Home</a>
+
+                <!-- <span class="drop-toggle">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span> -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="./index2.html">Home 2</a></li>
+                </ul>
+              </li>
+
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./service.html">Services</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <!-- <li><a href="./dashboard.html">Dashboard</a></li> -->
+            </ul>
+          </nav>
+
+          <div class="icons">
+            <div
+              class="cart-trigger"
+              onclick="toggleCart()"
+              style="
+                cursor: pointer;
+                color: #90ee90;
+                position: relative;
+                font-size: 24px;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                id="cart-count"
+                style="
+                  position: absolute;
+                  top: -10px;
+                  right: -10px;
+                  background: white;
+                  color: black;
+                  font-size: 12px;
+                  padding: 2px 6px;
+                  border-radius: 50%;
+                  font-weight: bold;
+                "
+                >0</span
+              >
+            </div>
+
+            <div class="login">
+              <a href="./login.html">
+                <button class="log-btn">Login</button>
+              </a>
+            </div>
+
+            <div class="mobilebar">
+              <div class="hamburger-box">
+                <div class="hamburger">
+                  <div class="line line1"></div>
+                  <div class="line line2"></div>
+                  <div class="line line3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li class="has-dropdown menu-item">
+          <div class="dropdown-header">
+            <a href="./index.html">Home</a>
+            <!-- <span class="drop-caret" id="home-caret">▾</span> -->
+          </div>
+          <!-- <ul class="submenu" id="home-dropdown">
+            <li><a href="./index2.html">Home 2</a></li>
+          </ul> -->
+        </li>
+
+        <li class="menu-item">
+          <a href="./about.html">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="./service.html">Services</a>
+        </li>
+        <li class="menu-item">
+          <a href="./blog.html">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="./contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="menu-item">
+          <a href="./dashboard.html">Dashboard</a>
+        </li> -->
+        <li class="menu-item">
+          <a href="./login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-login">
+        <!-- <a href="./app.html">
+            <button class="login-btn">Buy Now</button>
+          </a> -->
+      </div>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2 style="color: #90ee90">Shopping Cart</h2>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p style="text-align: center; margin-top: 50px; color: #666">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+          "
+        >
+          <span>Total:</span>
+          <span style="color: #90ee90; font-weight: bold"
+            >$<span id="total-price">0</span></span
+          >
+        </div>
+        <a href="./error.html">
+          <button
+            class="login-btn"
+            style="width: 100%; background: #90ee90; color: black; border: none"
+          >
+            Checkout Now
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- hero -->
+
+    <section class="hero-split">
+      <div class="hero-container">
+        <div class="hero-text-side">
+          <div class="badge">New Season Evolution 2026</div>
+          <h1 class="hero-title">
+            Shop Smart. <span class="neon-text">Live Better.</span>
+          </h1>
+          <p class="hero-subtext">
+            Experience the intersection of high-performance technology and
+            avant-garde fashion. From next-gen wearable tech to curated
+            streetwear staples.
+          </p>
+          <div class="hero-btns">
+           <a href="./error.html">
+             <button class="btn-primary">
+              <i class="fa-solid fa-cart-shopping"></i> Shop Now
+            </button>
+           </a>
+            <a href="./error.html">
+              <button class="btn-secondary">
+              <i class="fa-solid fa-magnifying-glass"></i> Explore Categories
+            </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-side">
+          <div class="main-image-wrapper">
+            <div class="inner-carousel">
+              <img
+                src="./Assets/fashion1_11zon_11zon.webp"
+                class="slide active"
+                alt="Fashion 1"
+              />
+              <img
+                src="./Assets/fashion3_11zon.webp"
+                class="slide"
+                alt="Fashion 3"
+              />
+              <img
+                src="./Assets/fashion2_11zon.webp"
+                class="slide"
+                alt="Fashion 2"
+              />
+            </div>
+
+            <div class="floating-item item-1">
+              <i class="fa-solid fa-headphones"></i>
+            </div>
+            <div class="floating-item item-2">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <div class="floating-item item-3">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sections -->
+
+    <!-- 1 -->
+
+    <section class="categories-section">
+      <div class="section-header">
+        <h2 class="gradient-title">Curated Collections</h2>
+        <p>
+          Discover the future of lifestyle through our hand-picked categories.
+        </p>
+      </div>
+
+      <div class="categories-wrapper">
+        <div class="categories-track">
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/headset1_11zon.webp"
+                alt="Headphones"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Headphones</h3>
+              <p>“Immersive Sound Experience”</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/Men's Shirts_11zon_11zon.webp"
+                alt="Men's Shirts"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Men’s Shirts</h3>
+              <p>“Style Meets Comfort”</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/Women's Fashion_11zon_11zon.webp"
+                alt="Women's Fashion"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Women’s Fashion</h3>
+              <p>“Elegance Redefined”</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/Smartphones_11zon.webp"
+                alt="Smartphones"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Smartphones</h3>
+              <p>“Power in Your Hands”</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/Laptops_11zon.webp"
+                alt="Laptops"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Laptops</h3>
+              <p>“Performance Unleashed”</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="card-img">
+              <img
+                src="./Assets/Home Essentials_11zon.webp"
+                alt="Home Essentials"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Home Essentials</h3>
+              <p>“Upgrade Your Space”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+
+    <section class="trending-section">
+      <div class="section-header">
+        <h2 class="gradient-title">Trending Products</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/headset1_11zon.webp"
+              alt="Headphones"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-001"
+                data-name="Wireless Headphones"
+                data-price="4999"
+                data-img="./Assets/headset1_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Wireless Noise Cancelling Headphones</h3>
+            <div class="product-meta">
+              <span class="price">₹4,999</span>
+              <span class="rating">⭐ 4.5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/shirt_11zon.webp"
+              alt="Shirt"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-002"
+                data-name="Oversized Cotton Shirt"
+                data-price="1299"
+                data-img="./Assets/shirt_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Oversized Cotton Shirt</h3>
+            <div class="product-meta">
+              <span class="price">₹1,299</span>
+              <span class="rating">⭐ 4.3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/watch-1_11zon.webp"
+              alt="Watch"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-003"
+                data-name="Smart Watch Pro"
+                data-price="3499"
+                data-img="./Assets/watch-1_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Smart Watch Pro</h3>
+            <div class="product-meta">
+              <span class="price">₹3,499</span>
+              <span class="rating">⭐ 4.6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/i phone_11zon.webp"
+              alt="iPhone 15 Pro"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-004"
+                data-name="iPhone 15 Pro Max"
+                data-price="159900"
+                data-img="./Assets/i phone_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>iPhone 15 Pro Max - 256GB</h3>
+            <div class="product-meta">
+              <span class="price">₹1,59,900</span>
+              <span class="rating">⭐ 4.9</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/ipad_11zon.webp"
+              alt="iPad Pro"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-005"
+                data-name="iPad Pro M2"
+                data-price="81900"
+                data-img="./Assets/ipad_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>iPad Pro M2 Liquid Retina</h3>
+            <div class="product-meta">
+              <span class="price">₹81,900</span>
+              <span class="rating">⭐ 4.8</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/mechanical keyboard_11zon.webp"
+              alt="Mechanical Keyboard"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-006"
+                data-name="RGB Mechanical Keyboard"
+                data-price="8499"
+                data-img="./Assets/mechanical keyboard_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>RGB Mechanical Gaming Keyboard</h3>
+            <div class="product-meta">
+              <span class="price">₹8,499</span>
+              <span class="rating">⭐ 4.7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/gaming mouse_11zon.webp"
+              alt="Gaming Mouse"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-007"
+                data-name="Logitech G-Pro Mouse"
+                data-price="12999"
+                data-img="./Assets/gaming mouse_11zon.web"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Logitech G-Pro Wireless Mouse</h3>
+            <div class="product-meta">
+              <span class="price">₹12,999</span>
+              <span class="rating">⭐ 4.9</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/DSLR Camera_11zon.webp"
+              alt="DSLR Camera"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-008"
+                data-name="Canon EOS R5"
+                data-price="339999"
+                data-img="./Assets/DSLR Camera_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Canon EOS R5 Mirrorless</h3>
+            <div class="product-meta">
+              <span class="price">₹3,39,999</span>
+              <span class="rating">⭐ 5.0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/Gaming Laptop_11zon.webp"
+              alt="Gaming Laptop"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-009"
+                data-name="Razer Blade 16 RGB"
+                data-price="389999"
+                data-img="./Assets/Gaming Laptop_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Razer Blade 16 - RTX 4090</h3>
+            <div class="product-meta">
+              <span class="price">₹3,89,999</span>
+              <span class="rating">⭐ 4.9</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="wishlist-btn"><i class="fa-regular fa-heart"></i></div>
+          <div class="product-img">
+            <img
+              src="./Assets/Curved Monitor_11zon.webp"
+              alt="Curved Monitor"
+            />
+            <div class="product-overlay">
+              <button
+                class="add-to-cart-btn"
+                data-id="prod-010"
+                data-name="Odyssey Neo G9"
+                data-price="145000"
+                data-img="./Assets/Curved Monitor_11zon.webp"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Samsung Odyssey Neo G9 49"</h3>
+            <div class="product-meta">
+              <span class="price">₹1,45,000</span>
+              <span class="rating">⭐ 4.8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+
+    <section class="flash-sale-wrap">
+      <div class="flash-container">
+        <div class="sale-info">
+          <div class="sale-badge">⚡ Limited Time Grand Sale</div>
+          <h2 class="sale-headline">
+            Yearly Megadeals <br />
+            <span class="neon-text">Live For 365 Days!</span>
+          </h2>
+          <p class="sale-subtext">
+            Our biggest annual celebration is here. Grab professional medical
+            devices and high-end gadgets at baseline prices all year round.
+          </p>
+
+          <div class="countdown-grid">
+            <div class="time-block">
+              <span id="days-val">000</span>
+              <p>Days</p>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-block">
+              <span id="hours-val">00</span>
+              <p>Hours</p>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-block">
+              <span id="minutes-val">00</span>
+              <p>Mins</p>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-block">
+              <span id="seconds-val">00</span>
+              <p>Secs</p>
+            </div>
+          </div>
+
+          <div class="stock-container">
+            <div class="stock-meta">
+              <span>Campaign Progress: 15%</span>
+              <span class="pulse-dot"></span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="deal-progress"></div>
+            </div>
+          </div>
+
+          <a href="/error.html">
+            <button class="cta-deal-btn">Explore Annual Deals</button>
+          </a>
+        </div>
+
+        <div class="sale-visual">
+          <div class="image-border-glow">
+            <img
+              src="./Assets/Annual Sale_11zon.webp"
+              alt="Annual Sale"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+
+    <section class="best-sellers-section">
+      <div class="section-header">
+        <div class="gradient-title">🔥 Best Seller</div>
+        <h2 class="section-title">
+          Customer favorites <span class="green-glow">you can’t miss</span>
+        </h2>
+      </div>
+
+      <div class="horizontal-scroll-wrapper">
+        <div class="scroll-container" id="best-seller-loop">
+          <div class="seller-card featured">
+            <div class="card-img-wrap">
+              <img
+                src="./Assets/shoe-1_11zon.webp"
+                alt="Nike Red"
+              />
+              <div class="card-overlay">
+                <a href="./error.html">
+                  <button class="view-btn">Quick View</button>
+                </a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Air Max Elite</h3>
+              <p>₹12,999</p>
+            </div>
+          </div>
+
+          <div class="seller-card">
+            <div class="card-img-wrap">
+              <img
+                src="./Assets/headset-2_11zon.webp"
+                alt="Headphones"
+              />
+              <div class="card-overlay">
+                <a href="./error.html">
+                  <button class="view-btn">Quick View</button>
+                </a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Studio Pro Wireless</h3>
+              <p>₹24,500</p>
+            </div>
+          </div>
+
+          <div class="seller-card">
+            <div class="card-img-wrap">
+              <img
+                src="./Assets/watch-1_11zon.webp"
+                alt="Watch"
+              />
+              <div class="card-overlay">
+                <a href="./error.html">
+                  <button class="view-btn">Quick View</button>
+                </a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Series X Smartwatch</h3>
+              <p>₹32,000</p>
+            </div>
+          </div>
+
+          <div class="seller-card">
+            <div class="card-img-wrap">
+              <img
+                src="./Assets/camera-2_11zon (1).webp"
+                alt="Camera"
+              />
+              <div class="card-overlay">
+                <a href="./error.html">
+                  <button class="view-btn">Quick View</button>
+                </a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Vlog Master 4K</h3>
+              <p>₹55,900</p>
+            </div>
+          </div>
+
+          <div class="seller-card">
+            <div class="card-img-wrap">
+              <img
+                src="./Assets/Polaroid_11zon.webp"
+                alt="Polaroid"
+              />
+              <div class="card-overlay">
+                <a href="./error.html">
+                  <button class="view-btn">Quick View</button>
+                </a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Insta-Snap Retro</h3>
+              <p>₹8,499</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+
+    <section class="new-arrivals-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Fresh drops. <span class="neon-highlight">Just landed.</span>
+        </h2>
+      </div>
+
+      <div class="arrivals-slider-wrapper">
+        <div class="arrivals-track" id="arrivals-track">
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹85,000</div>
+            <img
+              src="./Assets/watch-2_11zon.webp"
+              alt="Luxury Watch"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'wt-03',
+                    'Midnight Onyx Watch',
+                    85000,
+                    './Assets/watch-2_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹42,500</div>
+            <img
+              src="./Assets/headset-3_11zon.webp"
+              alt="VR Headset"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'gd-01',
+                    'Neon VR Goggles',
+                    42500,
+                    './Assets/headset-3_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹12,999</div>
+            <img
+              src="./Assets/mechanical keyboard_11zon.webp"
+              alt="Keyboard"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'gd-02',
+                    'RGB Mech Keyboard',
+                    12999,
+                    './Assets/mechanical keyboard_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹15,400</div>
+            <img
+              src="./Assets/watch-1_11zon.webp"
+              alt="Watch"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'wt-04',
+                    'Titanium Bauhaus',
+                    15400,
+                    './Assets/watch-1_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹68,000</div>
+            <img
+              src="./Assets/Drone-1_11zon.webp"
+              alt="Drone"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'gd-03',
+                    'Swift-Wing 4K Drone',
+                    68000,
+                    './Assets/Drone-1_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="arrival-card">
+            <div class="new-tag">NEW</div>
+            <div class="item-price">₹5,200</div>
+            <img
+              src="./Assets/gaming mouse_11zon.webp"
+              alt="Gaming Mouse"
+            />
+            <div class="card-action-overlay">
+              <button
+                class="add-to-cart-btn"
+                onclick="
+                  handleQuickAdd(
+                    this,
+                    'gd-04',
+                    'Phantom Pro Mouse',
+                    5200,
+                    './Assets/gaming mouse_11zon.webp',
+                  )
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="brands-section">
+      <div class="brands-container">
+        <p class="brands-subtitle">Trusted by top global brands</p>
+        <div class="marquee-wrapper">
+          <div class="marquee-content" id="brand-marquee">
+            <div class="brand-item">
+              <a href="./error.html">
+                <img
+                src="./Assets/Amazon_logo.svg"
+                alt="Brand"
+              />
+              </a>
+            </div>
+            <div class="brand-item">
+              <a href="./error.html">
+                <img
+                src="./Assets/Google_2015_logo.svg"
+                alt="Brand"
+              />
+              </a>
+            </div>
+            <div class="brand-item">
+              <a href="./error.html">
+                <img
+                src="./Assets/Facebook_Logo_(2019).webp"
+                alt="Brand"
+              />
+              </a>
+            </div>
+            <div class="brand-item">
+             <a href="./error.html">
+               <img
+                src="./Assets/apple.svg"
+                alt="Brand"
+              />
+             </a>
+            </div>
+            <div class="brand-item">
+              <a href="./error.html">
+                <img
+                src="./Assets/IBM_logo.svg"
+                alt="Brand"
+              />
+              </a>
+            </div>
+            <div class="brand-item">
+              <a href="./error.html">
+                <img
+                src="./Assets/Netflix_2015_logo.svg"
+                alt="Brand"
+              />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 7 -->
+    <section class="showcase-banner">
+      <div class="parallax-bg"></div>
+
+      <div class="showcase-content">
+        <h1 class="showcase-title">
+          Upgrade Your <span class="neon-text">Tech</span>
+        </h1>
+        <p class="showcase-description">
+          Experience next-gen performance with the latest laptops and
+          smartphones.
+        </p>
+        <div class="showcase-actions">
+          <a href="./error.html">
+            <button class="glow-cta">Shop Collection</button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- 8 -->
+    <section class="reviews-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          What Our <span class="neon-text">Community</span> Says
+        </h2>
+      </div>
+
+      <div class="reviews-container" id="reviews-slider">
+        <div class="review-card">
+          <div class="rating">⭐⭐⭐⭐⭐ <span>4.8</span></div>
+          <p class="review-text">
+            “Absolutely love the quality! Fast delivery and great support. The
+            tech feels next-gen.”
+          </p>
+          <div class="user-info">
+            <img
+              src="./Assets/t4.webp"
+              alt="User"
+            />
+            <div>
+              <h4>Rahul Sharma</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="rating">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+          <p class="review-text">
+            “Best purchase of 2026. The custom theme is fire, and the UI is
+            incredibly smooth.”
+          </p>
+          <div class="user-info">
+            <img
+              src="./Assets/t1.webp"
+              alt="User"
+            />
+            <div>
+              <h4>Sarah Jenkins</h4>
+              <span>Tech Reviewer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="rating">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+          <p class="review-text">
+            “Customer service helped me pick the right device. Shipping was
+            overnight to Mumbai!”
+          </p>
+          <div class="user-info">
+            <img
+              src="./Assets/t3.webp"
+              alt="User"
+            />
+            <div>
+              <h4>Arjun Mehta</h4>
+              <span>Pro Gamer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="rating">⭐⭐⭐⭐⭐ <span>4.7</span></div>
+          <p class="review-text">
+            “The secure payment gave me peace of mind. Highly recommend for
+            high-end electronics.”
+          </p>
+          <div class="user-info">
+            <img
+              src="./Assets/t2.webp"
+              alt="User"
+            />
+            <div>
+              <h4>Priya Das</h4>
+              <span>Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 9 -->
+    <section class="why-us-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Why <span class="neon-text">People</span> Choose Us
+        </h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="icon-wrap">🚚</div>
+          <h3>Free Shipping</h3>
+          <p>On all orders above ₹5,000 across India.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-wrap">🔄</div>
+          <h3>Easy Returns</h3>
+          <p>14-day no-questions-asked return policy.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-wrap">🔒</div>
+          <h3>Secure Payments</h3>
+          <p>AES-256 bit encrypted payment gateway.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-wrap">📞</div>
+          <h3>24/7 Support</h3>
+          <p>Live technical assistance whenever you need.</p>
+        </div>
+      </div>
+    </section>
+    <!-- 10 -->
+
+    <!-- 11 -->
+
+    <!-- 12 -->
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand gsap-contact">
+          <div class="logo" style="margin-bottom: 20px">
+            <a href="./index.html">
+              <img
+                src="./Assets/logo.webp"
+                alt="Logo"
+                style="max-width: 180px"
+              />
+            </a>
+          </div>
+
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership and unlock a world of unlimited movies, TV shows, and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-links gsap-contact">
+          <h4>Quick Links</h4>
+
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./login.html">Login</a>
+        </div>
+        <!-- <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+        </div> -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>
+            Enter your email to create or restart your membership and unlock a
+            world of unlimited movies, TV shows, and more.
+          </p>
+          <form action="./error.html">
+            <div class="news-input">
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">→</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Innovations. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="./error.html">Privacy Policy</a>
+          <a href="./error.html">ISO Compliance</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- hero  / button-->
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    // 1. Reveal Animations
+    tl.to(".badge", { opacity: 1, y: 0, duration: 1 })
+      .to(".hero-title", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+      .to(".hero-subtext", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+      .to(".hero-btns", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+      .to(
+        ".main-image-wrapper",
+        { opacity: 1, scale: 1, duration: 1.2 },
+        "-=1",
+      );
+
+    // 2. Infinite Icon Drift
+    gsap.to(".floating-item", {
+      y: 15,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.4,
+    });
+
+    // 3. Right-Side Image Loop Logic
+    const slides = document.querySelectorAll(".inner-carousel .slide");
+    let current = 0;
+
+    function cycleImages() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+
+    setInterval(cycleImages, 4000); // Changes image every 4 seconds
+  });
+</script>
+
+<script>
+  document
+    .querySelectorAll(".btn-primary, .btn-secondary")
+    .forEach((button) => {
+      button.addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple");
+        this.appendChild(ripple);
+
+        // Calculate position
+        const diameter = Math.max(this.clientWidth, this.clientHeight);
+        const radius = diameter / 2;
+        const rect = this.getBoundingClientRect();
+
+        ripple.style.width = ripple.style.height = `${diameter}px`;
+        ripple.style.left = `${e.clientX - rect.left - radius}px`;
+        ripple.style.top = `${e.clientY - rect.top - radius}px`;
+
+        ripple.addEventListener("animationend", () => {
+          ripple.remove();
+        });
+      });
+    });
+</script>
+
+<!-- sections -->
+
+<!-- 1 -->
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".categories-wrapper");
+    const firstCard = document.querySelector(".category-card");
+    let isPaused = false;
+
+    // 1. GSAP Entrance Animations
+    // Header fade-in
+    gsap.to(".section-header", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".categories-section",
+        start: "top 80%",
+      },
+    });
+
+    // Staggered card appearance
+    gsap.to(".category-card", {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".categories-wrapper",
+        start: "top 85%",
+      },
+    });
+
+    // 2. Precise Auto-Scroll Logic
+    function autoScroll() {
+      if (isPaused || !firstCard) return;
+
+      // Calculate gap dynamically from CSS
+      const cardStyle = window.getComputedStyle(firstCard);
+      const gap = parseInt(cardStyle.marginRight) || 30; // Fallback to 30px
+      const scrollDistance = firstCard.offsetWidth + gap;
+
+      const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+
+      // Reset to beginning if at the end, otherwise move one card over
+      if (wrapper.scrollLeft >= maxScroll - 10) {
+        wrapper.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        wrapper.scrollBy({ left: scrollDistance, behavior: "smooth" });
+      }
+    }
+
+    // 3. Interval & Interaction Management
+    let scrollInterval = setInterval(autoScroll, 3000);
+
+    const stopAuto = () => {
+      isPaused = true;
+    };
+    const startAuto = () => {
+      isPaused = false;
+    };
+
+    // Desktop Pause
+    wrapper.addEventListener("mouseenter", stopAuto);
+    wrapper.addEventListener("mouseleave", startAuto);
+
+    // Mobile Pause (Crucial for UX)
+    wrapper.addEventListener("touchstart", stopAuto, { passive: true });
+    wrapper.addEventListener("touchend", startAuto, { passive: true });
+
+    // Reset timer on manual scroll to prevent "jumping"
+    wrapper.addEventListener(
+      "scroll",
+      () => {
+        clearInterval(scrollInterval);
+        scrollInterval = setInterval(autoScroll, 3000);
+      },
+      { passive: true },
+    );
+  });
+</script>
+
+<!-- 2 -->
+<script>
+  // 1. Initialize Cart and Selectors
+  // We use 'var' or omit 'let' inside a non-module script to ensure global scope for inline onclicks
+  window.cart = [];
+
+  function updateCartUI() {
+    const cartCount = document.getElementById("cart-count");
+    const cartItemsContainer = document.getElementById("cart-items-container");
+    const totalPriceEl = document.getElementById("total-price");
+
+    if (!cartItemsContainer) return;
+
+    // Update Badge Count
+    if (cartCount) cartCount.innerText = window.cart.length;
+
+    // Update List Content
+    if (window.cart.length === 0) {
+      cartItemsContainer.innerHTML =
+        '<p style="text-align:center; margin-top:50px; color:#666;">Your cart is empty.</p>';
+    } else {
+      cartItemsContainer.innerHTML = window.cart
+        .map(
+          (item, index) => `
+            <div class="cart-item" style="display:flex; align-items:center; gap:15px; padding:15px; border-bottom:1px solid #222; background: #111; margin-bottom:10px; border-radius:10px;">
+                <img src="${item.img}" style="width:40px; height:40px; border-radius:5px; object-fit:cover;">
+                <div style="flex:1;">
+                    <h5 style="margin:0; font-size:14px; color:white;">${item.name}</h5>
+                    <small style="color:#90ee90; font-weight:bold;">₹${item.price}</small>
+                </div>
+                <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#ff4d4d; cursor:pointer; font-size:18px;">&times;</button>
+            </div>
+        `,
+        )
+        .join("");
+    }
+
+    // Update Total Price
+    const total = window.cart.reduce((sum, item) => sum + item.price, 0);
+    if (totalPriceEl) totalPriceEl.innerText = total.toLocaleString();
+  }
+
+  // Global functions so HTML onclick can find them
+  window.addToCart = function (product) {
+    window.cart.push(product);
+    updateCartUI();
+
+    if (typeof gsap !== "undefined") {
+      gsap.fromTo(
+        ".cart-trigger",
+        { scale: 1 },
+        {
+          scale: 1.4,
+          duration: 0.3,
+          yoyo: true,
+          repeat: 1,
+          ease: "back.out(1.7)",
+        },
+      );
+    }
+  };
+
+  window.removeFromCart = function (index) {
+    window.cart.splice(index, 1);
+    updateCartUI();
+  };
+
+  window.toggleCart = function () {
+    const sidebar = document.getElementById("cart-sidebar");
+    if (sidebar) sidebar.classList.toggle("active");
+  };
+
+  // Initialize Event Listeners
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartButtons = document.querySelectorAll(".add-to-cart-btn");
+
+    cartButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent page jump
+        const product = {
+          id: button.getAttribute("data-id"),
+          name: button.getAttribute("data-name"),
+          price: parseInt(button.getAttribute("data-price")) || 0,
+          img: button.getAttribute("data-img") || "",
+        };
+        window.addToCart(product);
+      });
+    });
+  });
+</script>
+
+<script>
+  function initWishlistToggle() {
+    const wishlistButtons = document.querySelectorAll(".wishlist-btn");
+
+    wishlistButtons.forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        // Stop the click from triggering the product card hover/click
+        e.stopPropagation();
+
+        const icon = this.querySelector("i");
+        const isLiked = icon.classList.contains("fa-solid");
+
+        if (!isLiked) {
+          // --- STATE: LIKED ---
+          icon.classList.replace("fa-regular", "fa-solid");
+          this.style.color = "#ff3939"; // High-end Red
+
+          // GSAP "Heartbeat" Animation
+          if (typeof gsap !== "undefined") {
+            gsap.fromTo(
+              this,
+              { scale: 1 },
+              {
+                scale: 1.5,
+                duration: 0.3,
+                yoyo: true,
+                repeat: 1,
+                ease: "back.out(1.7)",
+              },
+            );
+          }
+          console.log("Item added to favorites");
+        } else {
+          // --- STATE: UNLIKED ---
+          icon.classList.replace("fa-solid", "fa-regular");
+          this.style.color = "#ffffff"; // Back to White
+
+          // Small "shrink" feedback
+          if (typeof gsap !== "undefined") {
+            gsap.to(this, { scale: 1, duration: 0.2 });
+          }
+          console.log("Item removed from favorites");
+        }
+      });
+    });
+  }
+
+  // Initialize when the page loads
+  document.addEventListener("DOMContentLoaded", initWishlistToggle);
+</script>
+<!-- 3 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Set Target: Exactly 365 Days from now
+    const targetTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
+
+    const runCountdown = () => {
+      const now = new Date().getTime();
+      const gap = targetTime - now;
+
+      if (gap <= 0) {
+        clearInterval(timerInterval);
+        document.querySelector(".countdown-grid").innerHTML =
+          "<h2>ANNUAL SALE ENDED</h2>";
+        return;
+      }
+
+      // Expanded Calculations for Days, Hours, Mins, Secs
+      const d = Math.floor(gap / (1000 * 60 * 60 * 24));
+      const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((gap % (1000 * 60)) / 1000);
+
+      // Update DOM elements
+      const daysEl = document.getElementById("days-val");
+      const hoursEl = document.getElementById("hours-val");
+      const minsEl = document.getElementById("minutes-val");
+      const secsEl = document.getElementById("seconds-val");
+
+      if (daysEl) daysEl.innerText = d.toString().padStart(3, "0");
+      if (hoursEl) hoursEl.innerText = h.toString().padStart(2, "0");
+      if (minsEl) minsEl.innerText = m.toString().padStart(2, "0");
+      if (secsEl) secsEl.innerText = s.toString().padStart(2, "0");
+    };
+
+    const timerInterval = setInterval(runCountdown, 1000);
+    runCountdown(); // Run immediately on load
+
+    // 2. GSAP Animations
+    if (typeof gsap !== "undefined") {
+      gsap.from(".sale-info > *", {
+        opacity: 1,
+        y: 30,
+        stagger: 0.15,
+        duration: 1.2,
+        ease: "expo.out",
+      });
+
+      // Pulse effect for Neon Blue text
+      gsap.to(".neon-text", {
+        textShadow:
+          "0 0 25px rgba(32, 146, 192, 0.8), 0 0 10px rgba(32, 146, 192, 0.3)",
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    }
+  });
+</script>
+<!-- 4 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollContainer = document.getElementById("best-seller-loop");
+    const cards = document.querySelectorAll(".seller-card");
+
+    if (scrollContainer && typeof gsap !== "undefined") {
+      // 1. Double items for infinite loop
+      scrollContainer.innerHTML += scrollContainer.innerHTML;
+
+      // 2. Continuous Loop Animation
+      const scrollWidth = scrollContainer.scrollWidth / 2;
+      const timeScale = { value: 1 }; // For smooth deceleration
+
+      const loop = gsap.to(scrollContainer, {
+        x: `-=${scrollWidth}`,
+        duration: 35,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % scrollWidth),
+        },
+      });
+
+      // 3. Super Hover Logic: Tilt + Smooth Stop
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const xc = rect.width / 2;
+          const yc = rect.height / 2;
+
+          const dx = x - xc;
+          const dy = y - yc;
+
+          // Subtle 3D Tilt
+          gsap.to(card, {
+            rotationY: dx / 10,
+            rotationX: -dy / 10,
+            perspective: 1000,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        });
+
+        card.addEventListener("mouseenter", () => {
+          // Smoothly slow down the loop
+          gsap.to(timeScale, {
+            value: 0,
+            duration: 0.8,
+            onUpdate: () => loop.timeScale(timeScale.value),
+          });
+        });
+
+        card.addEventListener("mouseleave", () => {
+          // Smoothly speed back up
+          gsap.to(timeScale, {
+            value: 1,
+            duration: 0.8,
+            onUpdate: () => loop.timeScale(timeScale.value),
+          });
+          // Reset tilt
+          gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.5 });
+        });
+      });
+
+      // 4. Initial Staggered Reveal
+      gsap.from(".seller-card", {
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: ".best-sellers-section",
+          start: "top 80%",
+        },
+      });
+    }
+  });
+</script>
+
+<!-- 5 -->
+
+<script>
+  // 1. GLOBAL CART LOGIC
+  window.cart = window.cart || [];
+
+  window.handleQuickAdd = function (btn, id, name, price, img) {
+    const product = { id, name, price, img };
+    window.cart.push(product);
+
+    // Update UI if the function exists
+    if (typeof window.updateCartUI === "function") {
+      window.updateCartUI();
+    }
+
+    // --- GSAP Feedback Animation ---
+    if (typeof gsap !== "undefined") {
+      const originalText = btn.innerText; // Defined locally to prevent errors
+      btn.innerText = "✓ ADDED";
+      btn.style.backgroundColor = "#ffffff";
+
+      // Button Pop
+      gsap.fromTo(
+        btn,
+        { scale: 0.8 },
+        { scale: 1, duration: 0.4, ease: "back.out(2)" },
+      );
+
+      // Cart Icon Flash
+      gsap.to(".cart-trigger", {
+        scale: 1.3,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+      });
+
+      // Reset Button State
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.backgroundColor = "#39ff14";
+        btn.style.color = "#000000";
+      }, 1000);
+    }
+  };
+
+  // 2. GSAP INFINITE SCROLL & HOVER LOGIC
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("arrivals-track");
+
+    if (track && typeof gsap !== "undefined") {
+      // Clone items for infinite effect
+      const originalContent = track.innerHTML;
+      track.innerHTML += originalContent;
+
+      const totalWidth = track.scrollWidth / 2;
+
+      // Continuous Loop Animation
+      const scrollAnim = gsap.to(track, {
+        x: `+=${totalWidth}`,
+        duration: 30,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => {
+            const val = parseFloat(x);
+            return val > 0 ? val - totalWidth : val;
+          }),
+        },
+      });
+
+      // Handle Hover Slowdown (Using Event Delegation for clones)
+      track.addEventListener("mouseenter", (e) => {
+        if (e.target.closest(".arrival-card")) {
+          gsap.to(scrollAnim, { timeScale: 0.1, duration: 1 });
+        }
+      });
+
+      track.addEventListener("mouseleave", (e) => {
+        if (e.target.closest(".arrival-card")) {
+          gsap.to(scrollAnim, { timeScale: 1, duration: 1 });
+        }
+      });
+    }
+  });
+</script>
+
+<script>
+  window.handleQuickAdd = function (btn, id, name, price, img) {
+    const product = { id, name, price, img };
+
+    // 1. Add to the global cart array
+    window.cart.push(product);
+
+    // 2. Refresh the Sidebar UI
+    if (typeof window.updateCartUI === "function") {
+      window.updateCartUI();
+    }
+
+    // 3. GSAP Feedback Animation
+    if (typeof gsap !== "undefined") {
+      const originalText = "Add to Cart";
+      btn.innerText = "✓ ADDED";
+
+      // Using your signature green for the feedback state
+      btn.style.backgroundColor = "#7cfc00";
+      btn.style.color = "#000000";
+
+      gsap.fromTo(
+        btn,
+        { scale: 0.8 },
+        { scale: 1, duration: 0.4, ease: "back.out(2)" },
+      );
+
+      // Cart Icon Flash
+      gsap.to(".cart-trigger", {
+        scale: 1.3,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+      });
+
+      // Reset Button State after 1 second
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.backgroundColor = ""; // Resets to CSS default
+        btn.style.color = "";
+      }, 1000);
+    }
+  };
+</script>
+
+<!-- 6 -->
+<script>
+  function initBrandMarquee() {
+    const marquee = document.getElementById("brand-marquee");
+    if (!marquee) return;
+
+    // Clone content for seamless loop
+    marquee.innerHTML += marquee.innerHTML;
+
+    const scrollWidth = marquee.scrollWidth / 2;
+
+    const marqueeTween = gsap.to(marquee, {
+      x: -scrollWidth,
+      duration: 20,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % scrollWidth),
+      },
+    });
+
+    // Pause on hover
+    marquee.addEventListener("mouseenter", () => marqueeTween.pause());
+    marquee.addEventListener("mouseleave", () => marqueeTween.play());
+  }
+  initBrandMarquee();
+</script>
+<!-- 7 -->
+<script>
+  function initShowcaseParallax() {
+    if (typeof gsap === "undefined") return;
+
+    // Background Parallax
+    gsap.to(".parallax-bg", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".showcase-banner",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    // Content Fade-in
+    gsap.from(".showcase-content > *", {
+      opacity: 0,
+      y: 100,
+      stagger: 0.2,
+      duration: 1.5,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".showcase-banner",
+        start: "top 70%",
+      },
+    });
+  }
+  initShowcaseParallax();
+</script>
+<!-- 8 , 9 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Review Floating Animation
+    const cards = document.querySelectorAll(".review-card");
+
+    // 2. Entrance Animations (Opacity + Slide)
+    gsap.from(".review-card", {
+      opacity: 1,
+
+      stagger: 0.2,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".reviews-section",
+        start: "top 70%",
+      },
+    });
+
+    gsap.from(".why-item", {
+      opacity: 1,
+
+      stagger: 0.15,
+      duration: 1.2,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: ".why-us-section",
+        start: "top 80%",
+      },
+    });
+
+    // 3. Optional: Horizontal Mouse Drag for Reviews
+    const slider = document.getElementById("reviews-slider");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener("mouseleave", () => (isDown = false));
+    slider.addEventListener("mouseup", () => (isDown = false));
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
+
+<!-- 10 -->
+
+<!-- 11 -->
+
+<!-- 12 -->

@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./contact.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <div class="container1">
+          <h3>Welcome to Stackly – Shopping Service Connect and Enjoy</h3>
+        </div>
+        <div class="container2">
+          <div>
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>(123)456-7890</p>
+          </div>
+          <div>
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support@stackly.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="header2">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./Assets/logo.webp" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="div">
+          <nav>
+            <ul>
+              <li class="dropdown">
+                <a href="./index.html">Home</a>
+
+                <!-- <span class="drop-toggle">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span> -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="./index2.html">Home 2</a></li>
+                </ul>
+              </li>
+
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./service.html">Services</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <!-- <li><a href="./dashboard.html">Dashboard</a></li> -->
+            </ul>
+          </nav>
+
+          <div class="icons">
+            <div
+              class="cart-trigger"
+              onclick="toggleCart()"
+              style="
+                cursor: pointer;
+                color: #90ee90;
+                position: relative;
+                font-size: 24px;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                id="cart-count"
+                style="
+                  position: absolute;
+                  top: -10px;
+                  right: -10px;
+                  background: white;
+                  color: black;
+                  font-size: 12px;
+                  padding: 2px 6px;
+                  border-radius: 50%;
+                  font-weight: bold;
+                "
+                >0</span
+              >
+            </div>
+
+            <div class="login">
+              <a href="./login.html">
+                <button class="log-btn">Login</button>
+              </a>
+            </div>
+
+            <div class="mobilebar">
+              <div class="hamburger-box">
+                <div class="hamburger">
+                  <div class="line line1"></div>
+                  <div class="line line2"></div>
+                  <div class="line line3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li class="has-dropdown menu-item">
+          <div class="dropdown-header">
+            <a href="./index.html">Home</a>
+            <!-- <span class="drop-caret" id="home-caret">▾</span> -->
+          </div>
+          <!-- <ul class="submenu" id="home-dropdown">
+            <li><a href="./index2.html">Home 2</a></li>
+          </ul> -->
+        </li>
+
+        <li class="menu-item">
+          <a href="./about.html">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="./service.html">Services</a>
+        </li>
+        <li class="menu-item">
+          <a href="./blog.html">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="./contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="menu-item">
+          <a href="./dashboard.html">Dashboard</a>
+        </li> -->
+        <li class="menu-item">
+          <a href="./login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-login">
+        <!-- <a href="./app.html">
+            <button class="login-btn">Buy Now</button>
+          </a> -->
+      </div>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2 style="color: #90ee90">Shopping Cart</h2>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p style="text-align: center; margin-top: 50px; color: #666">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+          "
+        >
+          <span>Total:</span>
+          <span style="color: #90ee90; font-weight: bold"
+            >$<span id="total-price">0</span></span
+          >
+        </div>
+        <a href="./error.html">
+          <button
+          class="login-btn"
+          style="width: 100%; background: #90ee90; color: black; border: none"
+        >
+          Checkout Now
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="contact-hub-section">
+      <div class="blueprint-visualization">
+        <div class="visual-stage active" data-signal="form">
+          <img
+            src="./Assets/Technical Inquiry_11zon.webp"
+            alt="Form Blueprint"
+            class="base-blueprint"
+          />
+          <div class="signal-beam"></div>
+        </div>
+
+        <div class="visual-stage" data-signal="support">
+          <img
+            src="./Assets/Emergency Suppor_11zon.webp"
+            alt="Support Network"
+            class="base-blueprint"
+          />
+        </div>
+
+        <div class="visual-stage" data-signal="logistics">
+          <img
+            src="./Assets/Logistics & Logistics_11zon_11zon.webp"
+            alt="Logistics Flow"
+            class="base-blueprint"
+          />
+        </div>
+      </div>
+
+      <div class="contact-content-grid">
+        <div class="contact-side-nav">
+          <h2 class="hub-title">
+            Contact
+            <span class="lawn-green-text">Hub</span>
+          </h2>
+          <p class="hub-subtitle">
+            Select diagnostic channel to initialize inquiry.
+          </p>
+        </div>
+
+        <div class="contact-data-track">
+          <div class="contact-card active" data-signal-trigger="form">
+            <div class="card-header">
+              <span class="card-status active"></span>
+              <h4>Technical Inquiry</h4>
+            </div>
+            <p class="card-desc">
+              Detailed hardware specifications, integration protocols, or system
+              diagnostics.
+            </p>
+            <a href="./error.html">
+              <button class="card-btn">Initialize Form</button>
+            </a>
+            <div class="data-stream"></div>
+          </div>
+
+          <div class="contact-card" data-signal-trigger="support">
+            <div class="card-header">
+              <span class="card-status active"></span>
+              <h4>Emergency Support</h4>
+            </div>
+            <p class="card-desc">
+              24/7 technical hotline for immediate critical system failure
+              diagnostics.
+            </p>
+            <p class="rich-content">
+              AVG Response: <span class="lawn-green-text">12.5 seconds</span>
+            </p>
+            <a href="./error.html" class="card-btn">Connect Signal</a>
+          </div>
+
+          <div class="contact-card" data-signal-trigger="logistics">
+            <div class="card-header">
+              <span class="card-status"></span>
+              <h4>Logistics</h4>
+            </div>
+            <p class="card-desc">
+              Track specialized medical hardware shipments or request diagnostic
+              stress-test certificates.
+            </p>
+            <p class="rich-content">
+              Active Routes: <span class="lawn-green-text">5,102</span>
+            </p>
+            <a href="./error.html">
+              <button class="card-btn">Track Unit</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-container-section">
+      <div class="glass-form-wrapper">
+        <div class="form-header">
+          <span class="form-id">// INQUIRY_FORM_v1.0</span>
+          <h2>Initialize <span class="lawn-green-text">Data Transfer</span></h2>
+        </div>
+
+        <form id="contactForm" class="terminal-form" action="./error.html">
+          <div class="input-group">
+            <input type="text" id="name" required placeholder=" " />
+            <label for="name">Full Name</label>
+            <div class="focus-border"></div>
+          </div>
+
+          <div class="input-group">
+            <input type="email" id="email" required placeholder=" " />
+            <label for="email">Digital Address (Email)</label>
+            <div class="focus-border"></div>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="subject" required placeholder=" " />
+            <label for="subject">Inquiry Subject</label>
+            <div class="focus-border"></div>
+          </div>
+
+          <div class="input-group">
+            <textarea id="message" required placeholder=" " rows="4"></textarea>
+            <label for="message">Transmission Message</label>
+            <div class="focus-border"></div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span class="btn-text">Execute Send</span>
+            <div class="btn-glitch"></div>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact-info-grid">
+      <div class="info-node">
+        <div class="node-icon-wrapper">
+          <div class="icon-bg"></div>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="node-text">
+          <span class="node-label">GEOSPATIAL_LOC</span>
+          <h4>Global HQ</h4>
+          <p>123 Tech Corridor, Level 4<br />Innovation District, 560001</p>
+        </div>
+      </div>
+
+      <div class="info-node">
+        <div class="node-icon-wrapper">
+          <div class="icon-bg"></div>
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="node-text">
+          <span class="node-label">VOICE_UPLINK</span>
+          <h4>Direct Line</h4>
+          <p>+91 80 4567 8900<br />Mon - Fri: 0900 - 1800</p>
+        </div>
+      </div>
+
+      <div class="info-node">
+        <div class="node-icon-wrapper">
+          <div class="icon-bg"></div>
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <div class="node-text">
+          <span class="node-label">ENCRYPTED_MAIL</span>
+          <h4>System Support</h4>
+          <p>diagnostics@ecomm-med.com<br />support@ecomm-med.com</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="location-module">
+      <div class="map-container">
+        <div class="map-scanner"></div>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627977975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1619524992238!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+
+        <div class="map-data-overlay">
+          <div class="lat-long-feed">LAT: 37.8163° S | LONG: 144.9537° E</div>
+          <a href="./error.html">
+            <button class="promo-btn" style="width: auto; padding: 10px 20px">
+            Open GPS
+          </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="faq-container">
+        <div class="faq-header">
+          <span class="status-code">// ERROR_RESOLUTION_PROTOCOLS</span>
+          <h2>
+            Frequently Asked <span class="lawn-green-text">Diagnostics</span>
+          </h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>01. How do I return a hardware unit?</span>
+              <div class="plus-minus"></div>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Initialize a return via your 'Order History' dashboard. Once the
+                Request ID is generated, we provide a pre-paid diagnostic
+                shipping label. All units must be returned in original
+                static-shield packaging.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>02. What payment protocols are supported?</span>
+              <div class="plus-minus"></div>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We support all major encrypted credit gateways, PayPal, and
+                Direct Bank Transfer for B2B procurement orders. Cryptocurrency
+                payments are currently under beta testing.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>03. Standard delivery latency?</span>
+              <div class="plus-minus"></div>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Domestic transit typically resolves within 2–4 business cycles.
+                International logistics vary by region but usually arrive within
+                7–10 cycles via Express Air Freight.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>04. Warranty on biometric sensors?</span>
+              <div class="plus-minus"></div>
+            </button>
+            <div class="faq-answer">
+              <p>
+                All Grade-A biometric sensors include a 24-month hardware
+                failure protection. This excludes damage from improper
+                calibration or environmental exposure exceeding IP68 ratings.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>05. Can I modify my order mid-transit?</span>
+              <div class="plus-minus"></div>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Once the 'Logistics Dispatched' status is active, modifications
+                are restricted. You may request a 'Return to Sender' protocol
+                once the unit is scanned at the final destination hub.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="chat-wrapper">
+      <div class="chat-bubble" id="chatTrigger">
+        <div class="pulse-ring"></div>
+        <i class="fas fa-comment-alt"></i>
+        <span class="chat-tooltip">SYSTEM_ONLINE</span>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-head">
+          <h5>Support Terminal</h5>
+          <button id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body">
+          <p>Connect with a technician for instant hardware diagnostics.</p>
+          <button class="promo-btn">Start Chat</button>
+        </div>
+      </div>
+    </div> -->
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand gsap-contact">
+          <div class="logo" style="margin-bottom: 20px">
+            <a href="./index.html">
+              <img
+                src="./Assets/logo.webp"
+                alt="Logo"
+                style="max-width: 180px"
+              />
+            </a>
+          </div>
+
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership and unlock a world of unlimited movies, TV shows, and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-links gsap-contact">
+          <h4>Quick Links</h4>
+
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./login.html">Login</a>
+        </div>
+        <!-- <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+        </div> -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>
+            Enter your email to create or restart your membership and unlock a
+            world of unlimited movies, TV shows, and more.
+          </p>
+          <form action="./error.html">
+            <div class="news-input">
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">→</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Innovations. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="./error.html">Privacy Policy</a>
+          <a href="./error.html">ISO Compliance</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const cards = document.querySelectorAll(".contact-card");
+    const visuals = document.querySelectorAll(".visual-stage");
+
+    // --- FUNCTION 1: Hub Entrance ---
+    const initHubEntrance = () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".contact-hub-section",
+          start: "top 75%",
+        },
+      });
+
+      // Reveal the overall visualization base
+      tl.to(".blueprint-visualization", {
+        opacity: 0.15,
+        duration: 1.5,
+        ease: "power2.out",
+      })
+
+        // Reveal Nav & Title
+        .from(
+          ".contact-side-nav > *",
+          {
+            opacity: 0,
+            x: -30,
+            duration: 1,
+            stagger: 0.2,
+          },
+          "-=1",
+        )
+
+        // Staggered reveal of data cards
+        .to(
+          ".contact-card",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power4.out",
+          },
+          "-=0.5",
+        );
+    };
+
+    // --- FUNCTION 2: Blueprint Reconfiguration (Laser Pulse) ---
+    const reconfigureVisual = (activeSignal) => {
+      // 1. Hide current visualization
+      gsap.to(".visual-stage.active", {
+        opacity: 1,
+        scale: 1.1,
+        duration: 0.6,
+        ease: "power2.in",
+      });
+
+      // 2. Swaps 'active' class via DOM (CSS handles basic transition)
+      visuals.forEach((v) => v.classList.remove("active"));
+      const targetVisual = document.querySelector(
+        `.visual-stage[data-signal="${activeSignal}"]`,
+      );
+      targetVisual.classList.add("active");
+
+      // 3. GSAP Visualization of Signal Check (Lawn Green Laser)
+      const activeBeam = targetVisual.querySelector(".signal-beam");
+      if (activeBeam) {
+        const laserTL = gsap.timeline();
+        laserTL
+          .set(activeBeam, { left: "-100%", opacity: 1 })
+          .to(activeBeam, {
+            left: "150%",
+            duration: 0.8,
+            ease: "rough({ template: none, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false })", // Electrical flicker
+          })
+          .to(activeBeam, { opacity: 0, duration: 0.2 });
+      }
+    };
+
+    // --- MAIN: Setup Event Listeners ---
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        if (card.classList.contains("active")) return; // Exit if already active
+
+        // 1. DOM: Update Card UI (Classes)
+        cards.forEach((p) => p.classList.remove("active"));
+        card.classList.add("active");
+
+        // 2. GSAP: Tactile Click Feedback (Micro-interaction)
+        gsap.from(card, {
+          scale: 0.95,
+          duration: 0.4,
+          ease: "elastic.out(1, 0.3)",
+        });
+
+        // 3. Trigger FUNCTION: Reconfigure Blueprint Visual
+        const activeSignal = card.getAttribute("data-signal-trigger");
+        reconfigureVisual(activeSignal);
+      });
+    });
+
+    // Run initializations
+    initHubEntrance();
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // GSAP Success Animation
+      const tl = gsap.timeline();
+
+      // 1. Fade out fields
+      tl.to(".input-group, .submit-btn", {
+        opacity: 1,
+        y: -20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.in",
+      })
+
+        // 2. Show Success Message
+        .add(() => {
+          form.innerHTML = `
+        <div class="success-msg" style="text-align:center; padding: 40px 0;">
+          <h3 style="color:#7cfc00; margin-bottom:10px;">DATA_RECEIVED</h3>
+          <p style="color:#888;">Your inquiry has been logged in our system. <br> Diagnostic response pending.</p>
+        </div>
+      `;
+        })
+
+        .from(".success-msg", {
+          opacity: 1,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Map Scanner Animation
+    gsap.to(".map-scanner", {
+      top: "120%",
+      duration: 4,
+      repeat: -1,
+      ease: "none",
+    });
+
+    // 2. Info Node Stagger
+    gsap.from(".info-node", {
+      opacity: 1,
+      y: 30,
+      stagger: 0.2,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".contact-info-grid",
+        start: "top 80%",
+      },
+    });
+
+    // 3. Icon Diamond Pulse
+    const icons = document.querySelectorAll(".icon-bg");
+    icons.forEach((icon) => {
+      gsap.to(icon, {
+        borderColor: "rgba(124, 252, 0, 0.5)",
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    });
+  });
+</script>
+
+<!-- 4 , 5 , 6 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // --- FAQ Logic ---
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        // Close others
+        faqItems.forEach((i) => {
+          i.classList.remove("active");
+          i.querySelector(".faq-answer").style.maxHeight = "0";
+        });
+
+        if (!isActive) {
+          item.classList.add("active");
+          const answer = item.querySelector(".faq-answer");
+          answer.style.maxHeight = answer.scrollHeight + "px";
+
+          // GSAP Power-On Flicker for Answer
+          gsap.from(answer, { opacity: 1, duration: 0.5 });
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    const chatWrapper = document.querySelector(".chat-wrapper");
+
+    // --- FUNCTION: Toggle Chat Visibility based on Scroll ---
+    gsap.to(chatWrapper, {
+      scrollTrigger: {
+        // Trigger can be your hero section or the whole contact container
+        trigger: ".contact-hero",
+
+        // 'start' defines when it appears (top of hero hits top of viewport)
+        // 'endTrigger' defines when it disappears (bottom of FAQ hits bottom of viewport)
+        endTrigger: ".social-links-section",
+
+        start: "top 20%",
+        end: "bottom 80%",
+
+        // Toggle actions: play (enter), reverse (leave), play (enter back), reverse (leave back)
+        onEnter: () => fadeInChat(),
+        onLeave: () => fadeOutChat(),
+        onEnterBack: () => fadeInChat(),
+        onLeaveBack: () => fadeOutChat(),
+
+        // Optional: show a marker during development to see the trigger points
+        // markers: true
+      },
+    });
+
+    function fadeInChat() {
+      chatWrapper.classList.add("active");
+      gsap.to(chatWrapper, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+      });
+    }
+
+    function fadeOutChat() {
+      gsap.to(chatWrapper, {
+        opacity: 0,
+        y: 20,
+        scale: 0.8,
+        duration: 0.4,
+        ease: "power2.in",
+        onComplete: () => chatWrapper.classList.remove("active"),
+      });
+    }
+
+    // --- RE-INTEGRATE: Window Toggle Logic ---
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatWindow = document.getElementById("chatWindow");
+    const closeChat = document.getElementById("closeChat");
+
+    chatTrigger.addEventListener("click", () => {
+      chatWindow.style.display = "block";
+      gsap.fromTo(
+        chatWindow,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+      );
+    });
+
+    closeChat.addEventListener("click", () => {
+      gsap.to(chatWindow, {
+        y: 20,
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => (chatWindow.style.display = "none"),
+      });
+    });
+  });
+</script>

@@ -1,0 +1,1869 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./dashboard2.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-layout">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo-wrap">
+            <img
+              src="./Assets/logo.webp"
+              alt="Nexus E-com Admin"
+              class="logo"
+            />
+          </div>
+          <button class="close-sidebar" id="close-sidebar">
+            <span class="material-icons" style="color: gray">
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+          </button>
+        </div>
+
+        <div
+          class="patient-id-badge"
+          style="
+            background: rgba(124, 252, 0, 0.1);
+            border-left: 3px solid #7cfc00;
+          "
+        >
+          <span class="material-icons" style="color: #7cfc00">
+            <i class="fa-solid fa-shuttle-space"></i>
+          </span>
+          <div>
+            <p class="label">Operations Node</p>
+            <p class="value">HQ-CENTRAL_ADMIN</p>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <p class="nav-section-title">Store Management</p>
+
+          <button
+            class="sidebar-link active"
+            data-target="view-sales-analytics"
+          >
+            <span class="material-icons">
+              <i class="fa-solid fa-chart-pie"></i>
+            </span>
+            Sales Analytics
+          </button>
+
+          <button class="sidebar-link" data-target="view-inventory">
+            <span class="material-icons">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </span>
+            Stock & Inventory
+          </button>
+
+          <button class="sidebar-link" data-target="view-orders">
+            <span class="material-icons">
+              <i class="fa-solid fa-truck-fast"></i>
+            </span>
+            Order Fulfillment
+          </button>
+
+          <button class="sidebar-link" data-target="view-customers">
+            <span class="material-icons">
+              <i class="fa-solid fa-address-book"></i>
+            </span>
+            Customer Database
+          </button>
+
+          <button class="sidebar-link" data-target="view-promotions">
+            <span class="material-icons">
+              <i class="fa-solid fa-tags"></i>
+            </span>
+            Marketing & SEO
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a href="index.html" class="sidebar-link logout-link">
+            <span class="material-icons">
+              <i class="fa-solid fa-house"></i>
+            </span>
+            Back to Home
+          </a>
+          <a
+            href="login.html"
+            class="sidebar-link logout-link"
+            style="color: #ff4d4d"
+          >
+            <span class="material-icons">
+              <i class="fa-solid fa-power-off"></i>
+            </span>
+            System Sign-out
+          </a>
+        </div>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="top-header">
+          <div class="header-left">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+              <span class="material-icons" style="color: #7cfc00">
+                <i class="fa-solid fa-bars"></i>
+              </span>
+            </button>
+            <div>
+              <h1 id="greeting" style="color: #f8fafc">Ops Command: Michael</h1>
+              <p class="subtitle" style="color: var(--text-muted)">
+                Head of Logistics
+              </p>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              <div
+                class="status-monitor"
+                style="text-align: right; display: block"
+              >
+                <p
+                  style="
+                    font-size: 0.7rem;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    margin-bottom: 2px;
+                  "
+                >
+                  Global Fulfillment
+                </p>
+                <p style="font-size: 0.85rem; font-weight: 600; color: #7cfc00">
+                  OPERATIONAL
+                </p>
+              </div>
+
+              <button
+                onclick="window.location.href = './alerts.html'"
+                class="icon-btn"
+                style="
+                  position: relative;
+                  background: none;
+                  border: none;
+                  cursor: pointer;
+                "
+              >
+                <span class="material-icons" style="color: #f8fafc">
+                  <i class="fa-solid fa-tower-broadcast"></i>
+                </span>
+                <span
+                  class="notification-dot"
+                  style="
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    width: 8px;
+                    height: 8px;
+                    background: #8b0000;
+                    border-radius: 50%;
+                    border: 1px solid #000;
+                  "
+                ></span>
+              </button>
+            </div>
+
+             <div class="profile-menu-wrap" style="position: relative">
+              <div
+                class="user-avatar"
+                id="profile-avatar"
+                style="
+                  cursor: pointer;
+                  background: #7cfc00;
+                  color: white;
+                  font-weight: bold;
+                  border: 2px solid rgba(255, 255, 255, 0.1);
+                "
+              >
+                JD
+              </div>
+
+              <div class="profile-dropdown glass-card" id="profile-dropdown">
+                <div class="profile-dropdown-header">
+                  <p class="text-muted text-sm">Operator Identity</p>
+                  <h4
+                    id="dropdown-email"
+                    style="word-break: break-all; margin-top: 4px; color:var(--text-muted)"
+                  >
+                    m.ross@netflix.ops
+                  </h4>
+                </div>
+                <hr
+                  class="divider"
+                  style="margin: 12px 0; border-color: rgba(255, 255, 255, 0.1)"
+                />
+
+                <button
+                  class="sidebar-link"
+                  onclick="
+                    document
+                      .querySelector('[data-target=\'view-profile\']')
+                      .click()
+                  "
+                  style="margin: 0; padding: 10px; width: 100%"
+                >
+                  <span class="material-icons" style="font-size: 1.1rem"
+                    ></i
+                  ></span>
+                  Console Preferences
+                </button>
+
+                <button
+                  class="sidebar-link logout-link"
+                  onclick="
+                    sessionStorage.clear();
+                    window.location.href = 'login.html';
+                  "
+                  style="margin: 0; padding: 10px; width: 100%; color: #ff4d4d"
+                >
+                  <span class="material-icons" style="font-size: 1.1rem"
+                    ><i class="fa-solid fa-power-off"></i
+                  ></span>
+                  Back to Login
+                </button>
+              </div>
+          </div>
+        </header>
+
+        <div class="dashboard-content">
+          <section id="view-sales-analytics" class="content-view active-view">
+            <div class="overview-grid">
+              <div class="glass-card">
+                <div class="card-header">
+                  <h4 class="text-muted text-sm">Total Gross Revenue</h4>
+                  <span class="material-icons" style="color: #7cfc00"
+                    ><i class="fa-solid fa-sack-dollar"></i
+                  ></span>
+                </div>
+                <h2 class="mt-2">$142,580.00</h2>
+                <p class="text-sm mt-1" style="color: #7cfc00">
+                  <i class="fa-solid fa-arrow-trend-up"></i> +12.5%
+                  <span class="text-muted">vs last month</span>
+                </p>
+              </div>
+
+              <div class="glass-card">
+                <div class="card-header">
+                  <h4 class="text-muted text-sm">Avg. Customer LTV</h4>
+                  <span class="material-icons" style="color: #3b82f6"
+                    ><i class="fa-solid fa-users-line"></i
+                  ></span>
+                </div>
+                <h2 class="mt-2">$842.15</h2>
+                <p class="text-sm mt-1">
+                  <span class="text-muted">Retention Rate: </span> 64.2%
+                </p>
+              </div>
+
+              <div class="glass-card">
+                <div class="card-header">
+                  <h4 class="text-muted text-sm">Ad Spend ROI (ROAS)</h4>
+                  <span class="material-icons" style="color: #f5c518"
+                    ><i class="fa-solid fa-bullseye"></i
+                  ></span>
+                </div>
+                <h2 class="mt-2">4.2x</h2>
+                <p class="text-sm mt-1" style="color: #7cfc00">
+                  Optimized <i class="fa-solid fa-circle-check"></i>
+                </p>
+              </div>
+            </div>
+
+            <div class="grid-2-col mt-4">
+              <div class="glass-card">
+                <div class="section-header">
+                  <h3>Conversion Funnel</h3>
+                  <span
+                    class="badge"
+                    style="background: rgba(124, 252, 0, 0.1); color: #7cfc00"
+                    >Live 24h</span
+                  >
+                </div>
+                <div class="funnel-container mt-4">
+                  <div
+                    class="funnel-step"
+                    style="
+                      width: 100%;
+                      background: rgba(124, 252, 0, 0.2);
+                      border-left: 4px solid #7cfc00;
+                      padding: 12px;
+                      margin-bottom: 8px;
+                      border-radius: 4px;
+                    "
+                  >
+                    <div style="display: flex; justify-content: space-between">
+                      <span>Sessions</span>
+                      <strong>45,200</strong>
+                    </div>
+                  </div>
+                  <div
+                    class="funnel-step"
+                    style="
+                      width: 85%;
+                      background: rgba(124, 252, 0, 0.15);
+                      border-left: 4px solid #7cfc00;
+                      padding: 12px;
+                      margin-bottom: 8px;
+                      border-radius: 4px;
+                    "
+                  >
+                    <div style="display: flex; justify-content: space-between">
+                      <span>Product Views</span>
+                      <strong>38,421</strong>
+                    </div>
+                  </div>
+                  <div
+                    class="funnel-step"
+                    style="
+                      width: 40%;
+                      background: rgba(124, 252, 0, 0.1);
+                      border-left: 4px solid #7cfc00;
+                      padding: 12px;
+                      margin-bottom: 8px;
+                      border-radius: 4px;
+                    "
+                  >
+                    <div style="display: flex; justify-content: space-between">
+                      <span>Add to Cart</span>
+                      <strong>15,300</strong>
+                    </div>
+                  </div>
+                  <div
+                    class="funnel-step"
+                    style="
+                      width: 15%;
+                      background: rgba(124, 252, 0, 0.05);
+                      border-left: 4px solid #7cfc00;
+                      padding: 12px;
+                      border-radius: 4px;
+                    "
+                  >
+                    <div style="display: flex; justify-content: space-between">
+                      <span>Purchased</span>
+                      <strong>1,724</strong>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted text-sm mt-3">
+                  Overall Conversion Rate: <strong>3.82%</strong>
+                </p>
+              </div>
+
+              <div class="glass-card">
+                <h3>Revenue by Acquisition Channel</h3>
+                <div class="vitals-list mt-4">
+                  <div class="vital-item">
+                    <span class="vital-label">Organic Search (SEO)</span>
+                    <div style="display: flex; align-items: center; gap: 10px">
+                      <div
+                        style="
+                          width: 100px;
+                          height: 8px;
+                          background: #333;
+                          border-radius: 4px;
+                          overflow: hidden;
+                        "
+                      >
+                        <div
+                          style="width: 65%; height: 100%; background: #7cfc00"
+                        ></div>
+                      </div>
+                      <span class="vital-value">$92k</span>
+                    </div>
+                  </div>
+                  <div class="vital-item">
+                    <span class="vital-label">Paid Ads (PPC)</span>
+                    <div style="display: flex; align-items: center; gap: 10px">
+                      <div
+                        style="
+                          width: 100px;
+                          height: 8px;
+                          background: #333;
+                          border-radius: 4px;
+                          overflow: hidden;
+                        "
+                      >
+                        <div
+                          style="width: 25%; height: 100%; background: #7cfc00"
+                        ></div>
+                      </div>
+                      <span class="vital-value">$35k</span>
+                    </div>
+                  </div>
+                  <div class="vital-item">
+                    <span class="vital-label">Social Media</span>
+                    <div style="display: flex; align-items: center; gap: 10px">
+                      <div
+                        style="
+                          width: 100px;
+                          height: 8px;
+                          background: #333;
+                          border-radius: 4px;
+                          overflow: hidden;
+                        "
+                      >
+                        <div
+                          style="width: 10%; height: 100%; background: #7cfc00"
+                        ></div>
+                      </div>
+                      <span class="vital-value">$15k</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <div class="section-header">
+                <h3>Top Selling Products (This Month)</h3>
+                <button class="btn-outline btn-sm">Download Full Report</button>
+              </div>
+              <div class="data-table-wrapper">
+                <table class="clinical-table">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Units Sold</th>
+                      <th>Stock Level</th>
+                      <th>Gross Margin</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>ZenBook OLED 14</strong></td>
+                      <td>Laptops</td>
+                      <td>412</td>
+                      <td>
+                        <div
+                          style="display: flex; align-items: center; gap: 5px"
+                        >
+                          <div
+                            style="width: 50px; height: 4px; background: #333"
+                          >
+                            <div
+                              style="
+                                width: 20%;
+                                height: 100%;
+                                background: #f5c518;
+                              "
+                            ></div>
+                          </div>
+                          <small>Low</small>
+                        </div>
+                      </td>
+                      <td>32%</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(124, 252, 0, 0.1);
+                            color: #7cfc00;
+                          "
+                          >Trending</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>ErgoChair Pro</strong></td>
+                      <td>Furniture</td>
+                      <td>285</td>
+                      <td>
+                        <div
+                          style="display: flex; align-items: center; gap: 5px"
+                        >
+                          <div
+                            style="width: 50px; height: 4px; background: #333"
+                          >
+                            <div
+                              style="
+                                width: 80%;
+                                height: 100%;
+                                background: #7cfc00;
+                              "
+                            ></div>
+                          </div>
+                          <small>Healthy</small>
+                        </div>
+                      </td>
+                      <td>45%</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(124, 252, 0, 0.1);
+                            color: #7cfc00;
+                          "
+                          >Stable</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section id="view-inventory" class="content-view">
+            <div class="section-header">
+              <div>
+                <h2 style="margin-bottom: 10px; color: #f8fafc">
+                  Inventory Telemetry & Warehouse Ops
+                </h2>
+                <p class="text-muted">
+                  Real-time stock levels, fulfillment latency, and regional
+                  warehouse health.
+                </p>
+              </div>
+              <form class="search-box" action="./error.html">
+                <span class="material-icons" style="color: #7cfc00">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search SKU or Warehouse (e.g. WH-US-EAST)..."
+                />
+              </form>
+            </div>
+
+            <div class="data-table-wrapper glass-card">
+              <table class="clinical-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Logistics Node</th>
+                    <th>Primary KPI</th>
+                    <th>Metric Value</th>
+                    <th>SLA Threshold</th>
+                    <th>Node Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mar 25, 10:25</td>
+                    <td><strong>WH-US-EAST-VA</strong></td>
+                    <td>Fulfillment Time</td>
+                    <td class="status-warning" style="color: #f5c518">
+                      4.2 hrs
+                      <span class="material-icons" style="font-size: 1rem">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                      </span>
+                    </td>
+                    <td class="text-muted">&lt; 2.0 hrs</td>
+                    <td>
+                      <span
+                        class="badge badge-processing"
+                        style="
+                          background: rgba(245, 197, 24, 0.1);
+                          color: #f5c518;
+                        "
+                        >Congested</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        RE-ROUTE
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mar 25, 10:20</td>
+                    <td><strong>WH-EU-LON-1</strong></td>
+                    <td>Inventory Accuracy</td>
+                    <td class="status-good" style="color: #7cfc00">
+                      99.9%
+                      <span class="material-icons" style="font-size: 1rem">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                    </td>
+                    <td class="text-muted">&gt; 98.0%</td>
+                    <td>
+                      <span
+                        class="badge badge-completed"
+                        style="
+                          background: rgba(124, 252, 0, 0.1);
+                          color: #7cfc00;
+                        "
+                        >Optimal</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        REPORT
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mar 25, 10:15</td>
+                    <td><strong>WH-APAC-SG</strong></td>
+                    <td>Stock Turnover</td>
+                    <td style="color: #f8fafc">12.4x</td>
+                    <td class="text-muted">&gt; 10.0x</td>
+                    <td>
+                      <span
+                        class="badge badge-completed"
+                        style="
+                          background: rgba(124, 252, 0, 0.1);
+                          color: #7cfc00;
+                        "
+                        >High Velocity</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        REPORT
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="mt-4 mb-4" style="color: #f8fafc">
+              Supply Chain Documentation
+            </h3>
+            <div class="grid-2-col">
+              <div
+                class="consent-item glass-card"
+                style="justify-content: space-between"
+              >
+                <div style="display: flex; gap: 16px; align-items: center">
+                  <span
+                    class="material-icons file-icon"
+                    style="color: #7cfc00; margin: 0"
+                  >
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                  </span>
+                  <div>
+                    <h4 style="color: #f8fafc">
+                      Global Carrier API Guide v2.1
+                    </h4>
+                    <p class="text-muted text-sm">Updated Mar 15, 2026</p>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-solid fa-download"></i
+                  ></span>
+                </button>
+              </div>
+              <div
+                class="consent-item glass-card"
+                style="justify-content: space-between"
+              >
+                <div style="display: flex; gap: 16px; align-items: center">
+                  <span
+                    class="material-icons file-icon"
+                    style="color: #8b0000; margin: 0"
+                  >
+                    <i class="fa-solid fa-box-tissue"></i>
+                  </span>
+                  <div>
+                    <h4 style="color: #f8fafc">Hazardous Materials Protocol</h4>
+                    <p class="text-muted text-sm">Mandatory Compliance</p>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-solid fa-download"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <h3>Scheduled Stock Replenishment</h3>
+              <p class="text-muted mb-3">
+                Upcoming bulk arrivals and cross-docking schedules for regional
+                clusters.
+              </p>
+              <div class="data-table-wrapper">
+                <table class="clinical-table">
+                  <thead>
+                    <tr>
+                      <th>PO Number</th>
+                      <th>Expected Arrival</th>
+                      <th>Stage</th>
+                      <th>Est. Unloading</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>#PO-992-NEXUS</strong></td>
+                      <td>Mar 27, 2026</td>
+                      <td>
+                        <span class="badge badge-processing"
+                          >Customs Clearance</span
+                        >
+                      </td>
+                      <td class="text-muted">14:00 UTC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4" style="border-left: 4px solid #7cfc00">
+              <div class="section-header">
+                <h3>Revenue & Inventory Velocity (USD/hr)</h3>
+                <span class="text-muted text-sm"
+                  >Global Aggregate - Last 24 Hours</span
+                >
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  height: 250px;
+                  background: rgba(124, 252, 0, 0.02);
+                  border-radius: 8px;
+                  border: 1px dashed rgba(124, 252, 0, 0.2);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: column;
+                "
+              >
+                <span
+                  class="material-icons"
+                  style="font-size: 3rem; color: #1a2e05"
+                >
+                  <i class="fa-solid fa-chart-line"></i>
+                </span>
+                <p class="text-muted mt-2">
+                  Warehouse Management System (WMS) Live Feed
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="view-orders" class="content-view">
+            <h2 style="margin-bottom: 10px; color: #f8fafc">
+              Live Order Stream & Fulfillment Operations
+            </h2>
+            <p class="text-muted mb-4">
+              Track real-time order processing, monitor fulfillment bottlenecks,
+              and manage high-priority customer escalations.
+            </p>
+
+            <div class="grid-2-col">
+              <div class="timeline glass-card">
+                <h3>Operations & Shipping Timeline</h3>
+                <hr class="divider" style="opacity: 0.1; margin: 15px 0" />
+                <div class="timeline-item mt-4">
+                  <div
+                    class="timeline-marker active-marker"
+                    style="background: #7cfc00; box-shadow: 0 0 10px #7cfc00"
+                  ></div>
+                  <div class="timeline-content">
+                    <h4 style="color: #7cfc00">Peak Load Period</h4>
+                    <h3>Spring Tech Gala Sale</h3>
+                    <p class="text-muted">
+                      Expect 4x baseline order volume. Extra shifts assigned to
+                      Warehouse US-EAST.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <h4>Courier Update</h4>
+                    <h3>FedEx/DHL API Integration</h3>
+                    <p class="text-muted">
+                      Tracking sync maintenance scheduled for 02:00 UTC.
+                      Auto-retry enabled.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-card">
+                <h3>Fulfillment & Support Leads</h3>
+                <hr class="divider" style="opacity: 0.1; margin: 15px 0" />
+                <div class="vital-item mt-3">
+                  <div>
+                    <h4 style="color: #f8fafc">Elena Rodriguez</h4>
+                    <p class="text-muted text-sm">
+                      Warehouse Operations Manager
+                    </p>
+                  </div>
+                  <button
+                    onclick="window.location.href = './error.html'"
+                    class="btn-outline btn-sm"
+                  >
+                    Status
+                  </button>
+                </div>
+                <div class="vital-item mt-3">
+                  <div>
+                    <h4 style="color: #f8fafc">David Chen</h4>
+                    <p class="text-muted text-sm">Customer Resolution Tier 3</p>
+                  </div>
+                  <button
+                    onclick="window.location.href = './error.html'"
+                    class="btn-outline btn-sm"
+                  >
+                    Message
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <h3>Recent Orders</h3>
+              <div class="data-table-wrapper mt-3">
+                <table class="clinical-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Fulfillment Status</th>
+                      <th>Total Value</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>#ORD-88219</strong></td>
+                      <td>
+                        Jonathan V.
+                        <small class="text-muted">(Pro Member)</small>
+                      </td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(124, 252, 0, 0.1);
+                            color: #7cfc00;
+                          "
+                        >
+                          <i class="fa-solid fa-truck-fast"></i> Out for
+                          Delivery
+                        </span>
+                      </td>
+                      <td>$1,240.00</td>
+                      <td>
+                        <button class="btn-outline btn-sm">Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-88215</strong></td>
+                      <td>Sarah M.</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(245, 197, 24, 0.1);
+                            color: #f5c518;
+                          "
+                        >
+                          <i class="fa-solid fa-box-archive"></i> Processing
+                        </span>
+                      </td>
+                      <td>$450.00</td>
+                      <td>
+                        <button class="btn-outline btn-sm">Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-88210</strong></td>
+                      <td>TechnoCore Inc.</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(59, 130, 246, 0.1);
+                            color: #3b82f6;
+                          "
+                        >
+                          <i class="fa-solid fa-warehouse"></i> At Hub
+                        </span>
+                      </td>
+                      <td>$5,120.00</td>
+                      <td>
+                        <button class="btn-outline btn-sm">Details</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <h3>Order Escalation & Manual Override</h3>
+              <p class="text-muted mb-4">
+                Initiate manual refunds, re-route shipments, or flag orders for
+                "High Risk" fraud review.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px">
+                <input
+                  type="text"
+                  placeholder="Search by Order ID or Tracking Number..."
+                  style="
+                    flex-grow: 1;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: white;
+                    padding: 12px;
+                    border-radius: 4px;
+                  "
+                />
+                <button
+                  class="btn-primary"
+                  style="
+                    background: #7cfc00;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 4px;
+                    color: #000;
+                    font-weight: bold;
+                    cursor: pointer;
+                  "
+                >
+                  Locate Order
+                </button>
+              </div>
+              <div class="grid-2-col">
+                <div
+                  class="vital-item"
+                  style="
+                    background: rgba(229, 9, 20, 0.05);
+                    border: 1px solid rgba(229, 9, 20, 0.2);
+                    border-radius: 4px;
+                    padding: 10px;
+                  "
+                >
+                  <span style="color: #e50914; font-weight: bold"
+                    >Manual Refund</span
+                  >
+                  <small class="text-muted">Instant credit return</small>
+                </div>
+                <div
+                  class="vital-item"
+                  style="
+                    background: rgba(59, 130, 246, 0.05);
+                    border: 1px solid rgba(59, 130, 246, 0.2);
+                    border-radius: 4px;
+                    padding: 10px;
+                  "
+                >
+                  <span style="color: #3b82f6; font-weight: bold"
+                    >Reroute Ship</span
+                  >
+                  <small class="text-muted">Modify destination</small>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="view-customers" class="content-view">
+            <h2 style="color: #f8fafc">Customer Relationship & Revenue</h2>
+
+            <div class="grid-2-col mt-4">
+              <div class="glass-card">
+                <h3>Internal Customer Record</h3>
+                <hr class="divider" style="opacity: 0.1; margin: 15px 0" />
+                <p><strong>Primary Buyer:</strong> michael.r@example.com</p>
+                <p><strong>Shipping Zone:</strong> North America (US-EAST)</p>
+                <p><strong>Customer ID:</strong> CUST-88372-910X</p>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="btn-outline btn-sm mt-3"
+                >
+                  View Buying Persona
+                </button>
+              </div>
+
+              <div class="glass-card">
+                <h3>Active Membership Status</h3>
+                <hr class="divider" style="opacity: 0.1; margin: 15px 0" />
+                <div class="consent-item">
+                  <span
+                    class="material-icons status-good"
+                    style="color: #7cfc00"
+                  >
+                    <i class="fa-solid fa-circle-check"></i>
+                  </span>
+                  <div>
+                    <p><strong>Platinum Elite Member</strong></p>
+                    <p class="text-muted text-sm">
+                      Free Priority Shipping | 5% Site-wide Cashback
+                    </p>
+                  </div>
+                </div>
+                <div class="consent-item mt-2">
+                  <span
+                    class="material-icons status-good"
+                    style="color: #7cfc00"
+                  >
+                    <i class="fa-solid fa-circle-check"></i>
+                  </span>
+                  <div>
+                    <p><strong>Early Access Entitlement</strong></p>
+                    <p class="text-muted text-sm">
+                      Tier: Holiday Pre-sale Whitelist
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <div class="section-header">
+                <h3>Transaction & Fulfillment History</h3>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="btn-outline btn-sm"
+                >
+                  Export Ledger (CSV)
+                </button>
+              </div>
+              <div class="data-table-wrapper">
+                <table class="clinical-table">
+                  <thead>
+                    <tr>
+                      <th>Order Date</th>
+                      <th>Items Included</th>
+                      <th>Gross Total</th>
+                      <th>Discounts</th>
+                      <th>Net Revenue (LTV)</th>
+                      <th>Order Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Mar 15, 2026</td>
+                      <td>ErgoChair Pro x1, Desk Mat x1</td>
+                      <td>$450.00</td>
+                      <td>$0.00</td>
+                      <td><strong>$450.00</strong></td>
+                      <td>
+                        <span
+                          class="badge badge-completed"
+                          style="
+                            background: rgba(124, 252, 0, 0.1);
+                            color: #7cfc00;
+                          "
+                          >Shipped</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Feb 15, 2026</td>
+                      <td>ZenBook OLED 14 x1</td>
+                      <td>$1,299.99</td>
+                      <td>$100.00</td>
+                      <td><strong>$1,199.99</strong></td>
+                      <td>
+                        <span
+                          class="badge badge-completed"
+                          style="
+                            background: rgba(124, 252, 0, 0.1);
+                            color: #7cfc00;
+                          "
+                          >Delivered</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jan 15, 2026</td>
+                      <td>USB-C Hub, Cable Management Kit</td>
+                      <td>$85.50</td>
+                      <td>$0.00</td>
+                      <td><strong>$85.50</strong></td>
+                      <td>
+                        <span
+                          class="badge badge-processing"
+                          style="
+                            background: rgba(59, 130, 246, 0.2);
+                            color: #3b82f6;
+                          "
+                          >Processing</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <div class="section-header">
+                <h3>Security & Fraud Integrity</h3>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-solid fa-shield-halved"></i
+                  ></span>
+                </button>
+              </div>
+              <hr class="divider" style="opacity: 0.1; margin: 15px 0" />
+              <div class="grid-2-col">
+                <div>
+                  <p class="text-muted text-sm">Last Known Order IP</p>
+                  <h4 class="mt-2" style="color: #f8fafc">
+                    192.168.1.42 (Salem, TN)
+                  </h4>
+                  <p
+                    class="mt-2"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                      font-size: 0.9rem;
+                    "
+                  >
+                    <span
+                      class="material-icons text-muted"
+                      style="font-size: 1rem; color: #7cfc00"
+                    >
+                      <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    Geo-Location Matches Profile
+                  </p>
+                </div>
+                <div>
+                  <p class="text-muted text-sm">Primary Purchase Device</p>
+                  <h4 class="mt-2" style="color: #f8fafc">
+                    MacBook Air (Chrome / macOS)
+                  </h4>
+                  <p
+                    class="mt-2"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                      font-size: 0.9rem;
+                    "
+                  >
+                    <span
+                      class="material-icons text-muted"
+                      style="font-size: 1rem"
+                    >
+                      <i class="fa-solid fa-fingerprint"></i>
+                    </span>
+                    Device Fingerprint Verified
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4" style="border-left: 4px solid #7cfc00">
+              <div class="section-header">
+                <h3>Payment Method Vault</h3>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="btn-outline btn-sm"
+                >
+                  Sync Stripe Customer
+                </button>
+              </div>
+              <div
+                class="consent-item mt-3"
+                style="justify-content: space-between"
+              >
+                <div style="display: flex; gap: 16px; align-items: center">
+                  <span
+                    class="material-icons"
+                    style="font-size: 2rem; color: #7cfc00"
+                  >
+                    <i class="fa-brands fa-cc-visa"></i>
+                  </span>
+                  <div>
+                    <h4 style="color: #f8fafc">Visa ending in •••• 4242</h4>
+                    <p class="text-muted text-sm">
+                      Default Method | Valid Thru 12/28
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-regular fa-trash-can"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="view-promotions" class="content-view">
+            <div class="section-header">
+              <div>
+                <h2 style="margin-bottom: 10px; color: #f8fafc">
+                  Marketing Intelligence & SEO Performance
+                </h2>
+                <p class="text-muted">
+                  Track organic visibility, search engine crawl health, and
+                  conversion attribution across active campaigns.
+                </p>
+              </div>
+              <div class="search-box">
+                <span class="material-icons" style="color: #7cfc00">
+                  <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </span>
+                <input
+                  type="text"
+                  placeholder="Audit Keywords or UTM Parameters..."
+                />
+              </div>
+            </div>
+
+            <div class="data-table-wrapper glass-card">
+              <table class="clinical-table">
+                <thead>
+                  <tr>
+                    <th>Last Index Scan</th>
+                    <th>Domain Authority</th>
+                    <th>Core Web Vitals</th>
+                    <th>Organic CTR</th>
+                    <th>Backlink Status</th>
+                    <th>Search Console</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mar 25, 11:00</td>
+                    <td><strong>ResearchGate Protocol</strong></td>
+                    <td class="status-good" style="color: #7cfc00">
+                      Healthy (LCP 1.2s)
+                    </td>
+                    <td>
+                      4.82%
+                      <span class="material-icons" style="font-size: 1rem">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                      </span>
+                    </td>
+                    <td>
+                      <span
+                        class="badge"
+                        style="
+                          background: rgba(124, 252, 0, 0.1);
+                          color: #7cfc00;
+                          border: 1px solid rgba(124, 252, 0, 0.2);
+                        "
+                        >Verified</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        VIEW
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mar 25, 09:15</td>
+                    <td><strong>Industry Insights Portal</strong></td>
+                    <td class="status-good" style="color: #7cfc00">
+                      Healthy (CLS 0.01)
+                    </td>
+                    <td>3.15%</td>
+                    <td>
+                      <span
+                        class="badge"
+                        style="
+                          background: rgba(124, 252, 0, 0.1);
+                          color: #7cfc00;
+                          border: 1px solid rgba(124, 252, 0, 0.2);
+                        "
+                        >Verified</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        VIEW
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mar 24, 18:30</td>
+                    <td><strong>Partner Network Subdomain</strong></td>
+                    <td class="status-warning" style="color: #f5c518">
+                      Needs Review (FID)
+                    </td>
+                    <td style="color: #f5c518">
+                      0.92%
+                      <span class="material-icons" style="font-size: 1rem">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                      </span>
+                    </td>
+                    <td>
+                      <span
+                        class="badge"
+                        style="
+                          background: rgba(245, 197, 24, 0.1);
+                          color: #f5c518;
+                          border: 1px solid rgba(245, 197, 24, 0.2);
+                        "
+                        >Pending</span
+                      >
+                    </td>
+                    <td>
+                      <button
+                        onclick="window.location.href = './error.html'"
+                        class="btn-outline btn-sm"
+                      >
+                        VIEW
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="mt-4 mb-4" style="color: #f8fafc">
+              Active Campaigns & Tracking Tags
+            </h3>
+            <div class="grid-2-col">
+              <div
+                class="consent-item glass-card"
+                style="justify-content: space-between"
+              >
+                <div style="display: flex; gap: 16px; align-items: center">
+                  <span
+                    class="material-icons file-icon"
+                    style="color: #7cfc00; margin: 0"
+                  >
+                    <i class="fa-solid fa-tags"></i>
+                  </span>
+                  <div>
+                    <h4>Google Tag Manager Container</h4>
+                    <p class="text-muted text-sm">
+                      GTM-PUBLISHED: 12 Active Tags
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-solid fa-gear"></i
+                  ></span>
+                </button>
+              </div>
+              <div
+                class="consent-item glass-card"
+                style="justify-content: space-between"
+              >
+                <div style="display: flex; gap: 16px; align-items: center">
+                  <span
+                    class="material-icons file-icon"
+                    style="color: #7cfc00; margin: 0"
+                  >
+                    <i class="fa-solid fa-bullhorn"></i>
+                  </span>
+                  <div>
+                    <h4>Retargeting Pixel Audit</h4>
+                    <p class="text-muted text-sm">
+                      Meta & LinkedIn Active Heartbeats
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href = './error.html'"
+                  class="icon-btn-small"
+                >
+                  <span class="material-icons"
+                    ><i class="fa-solid fa-chart-line"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4">
+              <h3>Top Conversion Keywords (Organic)</h3>
+              <p class="text-muted mb-3">
+                Real-time tracking of high-intent search queries leading to
+                newsletter signups and collaboration inquiries.
+              </p>
+              <div class="data-table-wrapper">
+                <table class="clinical-table">
+                  <thead>
+                    <tr>
+                      <th>Keyword Cluster</th>
+                      <th>Search Volume</th>
+                      <th>Competition Score</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>#KW-881 (Medical AI Research)</strong></td>
+                      <td>12.4K /mo</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: rgba(59, 130, 246, 0.2);
+                            color: #3b82f6;
+                          "
+                          >High Volume</span
+                        >
+                      </td>
+                      <td class="text-muted">Ranking #1-3</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="glass-card mt-4" style="border-left: 4px solid #7cfc00">
+              <div class="section-header">
+                <h3>Content Health & Internal Linking</h3>
+                <span class="text-muted text-sm"
+                  >Broken Link / Canonical Audit - Last 24 Hours</span
+                >
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  height: 250px;
+                  background: rgba(124, 252, 0, 0.02);
+                  border-radius: 8px;
+                  border: 1px dashed rgba(124, 252, 0, 0.2);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: column;
+                "
+              >
+                <span
+                  class="material-icons"
+                  style="font-size: 3rem; color: #2a3d1b"
+                >
+                  <i class="fa-solid fa-spider"></i>
+                </span>
+                <p class="text-muted mt-2">
+                  Sitemap.xml fully synchronized. No 404 crawl errors detected
+                  in the Scientific Discoveries directory.
+                </p>
+                <button
+                  class="btn-outline btn-sm mt-3"
+                  style="color: #7cfc00; border-color: #7cfc00"
+                >
+                  Re-run SEO Crawler
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // =========================
+    // ✅ GET USER EMAIL
+    // =========================
+    const userEmailDisplay = document.getElementById("userEmailDisplay");
+    const dropdownEmail = document.getElementById("dropdown-email");
+    const greetingEl = document.getElementById("greeting");
+    const avatarBtn = document.getElementById("profile-avatar");
+
+    const activeEmail =
+      sessionStorage.getItem("userEmail") ||
+      sessionStorage.getItem("adminEmail");
+
+    if (!activeEmail) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    // Show email
+    if (userEmailDisplay) {
+      userEmailDisplay.textContent = activeEmail;
+    }
+
+    if (dropdownEmail) {
+      dropdownEmail.textContent = activeEmail;
+    }
+
+    // Greeting (name from email)
+    if (greetingEl) {
+      let name = activeEmail.split("@")[0];
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+      greetingEl.textContent = `Hello, ${name}`;
+    }
+
+    // Avatar first letter
+    if (avatarBtn) {
+      avatarBtn.textContent = activeEmail.charAt(0).toUpperCase();
+    }
+
+    // =========================
+    // ✅ PROFILE DROPDOWN
+    // =========================
+    const profileDropdown = document.getElementById("profile-dropdown");
+
+    if (avatarBtn && profileDropdown) {
+      avatarBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        profileDropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          profileDropdown.classList.contains("active") &&
+          !profileDropdown.contains(event.target) &&
+          event.target !== avatarBtn
+        ) {
+          profileDropdown.classList.remove("active");
+        }
+      });
+    }
+
+    // =========================
+    // ✅ CHARTS FUNCTION
+    // =========================
+    function initCharts() {
+      const glucoseCtx = document.getElementById("glucoseChart");
+      if (glucoseCtx) {
+        new Chart(glucoseCtx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar"],
+            datasets: [
+              {
+                label: "Glucose",
+                data: [95, 102, 110],
+                borderColor: "#00D4FF",
+                backgroundColor: "rgba(0,212,255,0.1)",
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+
+      const cholCtx = document.getElementById("cholesterolChart");
+      if (cholCtx) {
+        new Chart(cholCtx, {
+          type: "bar",
+          data: {
+            labels: ["LDL", "HDL", "Total"],
+            datasets: [
+              {
+                label: "Cholesterol",
+                data: [95, 55, 180],
+                backgroundColor: "rgba(16,185,129,0.6)",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+    }
+
+    // =========================
+    // ✅ SIDEBAR NAVIGATION
+    // =========================
+    const sidebarLinks = document.querySelectorAll(
+      ".sidebar-link[data-target]",
+    );
+    const contentViews = document.querySelectorAll(".content-view");
+    const sidebar = document.getElementById("sidebar");
+
+    sidebarLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        sidebarLinks.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+
+        contentViews.forEach((view) => view.classList.remove("active-view"));
+
+        const targetId = this.getAttribute("data-target");
+        const targetView = document.getElementById(targetId);
+
+        if (targetView) {
+          targetView.classList.add("active-view");
+
+          // Load charts only when analytics tab opens
+          if (targetId === "view-analytics") {
+            initCharts();
+          }
+        }
+
+        if (window.innerWidth <= 768 && sidebar) {
+          sidebar.classList.remove("mobile-open");
+        }
+      });
+    });
+
+    // =========================
+    // ✅ MOBILE SIDEBAR
+    // =========================
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const closeSidebarBtn = document.getElementById("close-sidebar");
+
+    if (mobileMenuBtn && sidebar) {
+      mobileMenuBtn.addEventListener("click", () => {
+        sidebar.classList.add("mobile-open");
+      });
+    }
+
+    if (closeSidebarBtn && sidebar) {
+      closeSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.remove("mobile-open");
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!sidebar || !mobileMenuBtn) return;
+
+      const isClickInsideSidebar = sidebar.contains(event.target);
+      const isClickOnHamburger = mobileMenuBtn.contains(event.target);
+
+      if (
+        !isClickInsideSidebar &&
+        !isClickOnHamburger &&
+        sidebar.classList.contains("mobile-open")
+      ) {
+        sidebar.classList.remove("mobile-open");
+      }
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const userEmailDisplay = document.getElementById("userEmailDisplay");
+    const dropdownEmail = document.getElementById("dropdown-email");
+    const greetingEl = document.getElementById("greeting");
+    const avatarBtn = document.getElementById("profile-avatar");
+
+    // ✅ Correct keys
+    const activeEmail = sessionStorage.getItem("loggedInUser");
+    const role = sessionStorage.getItem("role");
+
+    if (!activeEmail) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    // 🔐 Restrict admin page
+    if (role !== "admin") {
+      window.location.href = "dashboard.html";
+      return;
+    }
+
+    // ✅ Show email
+    if (userEmailDisplay) userEmailDisplay.textContent = activeEmail;
+    if (dropdownEmail) dropdownEmail.textContent = activeEmail;
+
+    // ✅ Greeting
+    if (greetingEl) {
+      let name = activeEmail.split("@")[0];
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+      greetingEl.textContent = `Hey, ${name}`;
+    }
+
+    // ✅ Avatar
+    if (avatarBtn) {
+      avatarBtn.textContent = activeEmail.charAt(0).toUpperCase();
+    }
+
+    // =========================
+    // PROFILE DROPDOWN
+    // =========================
+    const profileDropdown = document.getElementById("profile-dropdown");
+
+    if (avatarBtn && profileDropdown) {
+      avatarBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        profileDropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          profileDropdown.classList.contains("active") &&
+          !profileDropdown.contains(event.target) &&
+          event.target !== avatarBtn
+        ) {
+          profileDropdown.classList.remove("active");
+        }
+      });
+    }
+
+    // =========================
+    // CHARTS
+    // =========================
+    function initCharts() {
+      const glucoseCtx = document.getElementById("glucoseChart");
+      if (glucoseCtx) {
+        new Chart(glucoseCtx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar"],
+            datasets: [
+              {
+                label: "Glucose",
+                data: [95, 102, 110],
+                borderColor: "#00D4FF",
+                backgroundColor: "rgba(0,212,255,0.1)",
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+
+      const cholCtx = document.getElementById("cholesterolChart");
+      if (cholCtx) {
+        new Chart(cholCtx, {
+          type: "bar",
+          data: {
+            labels: ["LDL", "HDL", "Total"],
+            datasets: [
+              {
+                label: "Cholesterol",
+                data: [95, 55, 180],
+                backgroundColor: "rgba(16,185,129,0.6)",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+    }
+
+    // =========================
+    // SIDEBAR NAV
+    // =========================
+    const sidebarLinks = document.querySelectorAll(
+      ".sidebar-link[data-target]",
+    );
+    const contentViews = document.querySelectorAll(".content-view");
+    const sidebar = document.getElementById("sidebar");
+
+    sidebarLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        sidebarLinks.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+
+        contentViews.forEach((view) => view.classList.remove("active-view"));
+
+        const targetId = this.getAttribute("data-target");
+        const targetView = document.getElementById(targetId);
+
+        if (targetView) {
+          targetView.classList.add("active-view");
+
+          if (targetId === "view-analytics") {
+            initCharts();
+          }
+        }
+
+        if (window.innerWidth <= 768 && sidebar) {
+          sidebar.classList.remove("mobile-open");
+        }
+      });
+    });
+
+    // =========================
+    // MOBILE SIDEBAR
+    // =========================
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const closeSidebarBtn = document.getElementById("close-sidebar");
+
+    if (mobileMenuBtn && sidebar) {
+      mobileMenuBtn.addEventListener("click", () => {
+        sidebar.classList.add("mobile-open");
+      });
+    }
+
+    if (closeSidebarBtn && sidebar) {
+      closeSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.remove("mobile-open");
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!sidebar || !mobileMenuBtn) return;
+
+      if (
+        !sidebar.contains(event.target) &&
+        !mobileMenuBtn.contains(event.target) &&
+        sidebar.classList.contains("mobile-open")
+      ) {
+        sidebar.classList.remove("mobile-open");
+      }
+    });
+  });
+</script>

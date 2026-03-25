@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="icon" href="./Assets/icon.webp" />
+    <link rel="stylesheet" href="./service.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <div class="container1">
+          <h3>Welcome to Stackly – Shopping Service Connect and Enjoy</h3>
+        </div>
+        <div class="container2">
+          <div>
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>(123)456-7890</p>
+          </div>
+          <div>
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support@stackly.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="header2">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./Assets/logo.webp" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="div">
+          <nav>
+            <ul>
+              <li class="dropdown">
+                <a href="./index.html">Home</a>
+
+                <!-- <span class="drop-toggle">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span> -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="./index2.html">Home 2</a></li>
+                </ul>
+              </li>
+
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./service.html">Services</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <!-- <li><a href="./dashboard.html">Dashboard</a></li> -->
+            </ul>
+          </nav>
+
+          <div class="icons">
+            <div
+              class="cart-trigger"
+              onclick="toggleCart()"
+              style="
+                cursor: pointer;
+                color: #90ee90;
+                position: relative;
+                font-size: 24px;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span
+                id="cart-count"
+                style="
+                  position: absolute;
+                  top: -10px;
+                  right: -10px;
+                  background: white;
+                  color: black;
+                  font-size: 12px;
+                  padding: 2px 6px;
+                  border-radius: 50%;
+                  font-weight: bold;
+                "
+                >0</span
+              >
+            </div>
+
+            <div class="login">
+              <a href="./login.html">
+                <button class="log-btn">Login</button>
+              </a>
+            </div>
+
+            <div class="mobilebar">
+              <div class="hamburger-box">
+                <div class="hamburger">
+                  <div class="line line1"></div>
+                  <div class="line line2"></div>
+                  <div class="line line3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li class="has-dropdown menu-item">
+          <div class="dropdown-header">
+            <a href="./index.html">Home</a>
+            <!-- <span class="drop-caret" id="home-caret">▾</span> -->
+          </div>
+          <!-- <ul class="submenu" id="home-dropdown">
+            <li><a href="./index2.html">Home 2</a></li>
+          </ul> -->
+        </li>
+
+        <li class="menu-item">
+          <a href="./about.html">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="./service.html">Services</a>
+        </li>
+        <li class="menu-item">
+          <a href="./blog.html">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="./contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="menu-item">
+          <a href="./dashboard.html">Dashboard</a>
+        </li> -->
+        <li class="menu-item">
+          <a href="./login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-login">
+        <!-- <a href="./app.html">
+            <button class="login-btn">Buy Now</button>
+          </a> -->
+      </div>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2 style="color: #90ee90">Shopping Cart</h2>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+      </div>
+      <div id="cart-items-container">
+        <p style="text-align: center; margin-top: 50px; color: #666">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+          "
+        >
+          <span>Total:</span>
+          <span style="color: #90ee90; font-weight: bold"
+            >$<span id="total-price">0</span></span
+          >
+        </div>
+        <a href="./error.html">
+          <button
+          class="login-btn"
+          style="width: 100%; background: #90ee90; color: black; border: none"
+        >
+          Checkout Now
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="service-hero-section">
+      <div class="hero-visual-layers">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="digital-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="badge-container">
+          <span class="service-badge">OUR CAPABILITIES</span>
+        </div>
+        <h1 class="hero-main-title">
+          Seamless
+          <span class="glitch-text" data-text="Shopping">Shopping</span> <br />
+          <span class="neon-highlight">Experience</span>
+        </h1>
+        <p class="hero-desc">
+          Precision-engineered logistics meets intuitive digital interfaces.
+          We’ve redesigned the supply chain to put the future of tech in your
+          hands, instantly.
+        </p>
+
+        <div class="hero-btns">
+          <a href="./error.html">
+            <button class="btn-glow">Explore Services</button>
+          </a>
+          <a href="./error.html">
+            <button class="btn-outline">Watch Process</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="floating-icons">
+        <div class="float-icon icon-1">📦</div>
+        <div class="float-icon icon-2">⚡</div>
+        <div class="float-icon icon-3">🛡️</div>
+      </div>
+    </section>
+
+    <section class="services-grid-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Premium <span class="lawn-green-text">Services</span>
+        </h2>
+      </div>
+
+      <div class="services-container">
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="service-icon">🚚</div>
+              <h3>Fast Delivery</h3>
+              <div class="glow-line"></div>
+            </div>
+            <div class="card-back">
+              <p>
+                Get your products delivered within 2–5 days with real-time
+                tracking systems.
+              </p>
+              <span class="service-tag">LawnGreen Logistics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="service-icon">🔄</div>
+              <h3>Easy Returns</h3>
+              <div class="glow-line"></div>
+            </div>
+            <div class="card-back">
+              <p>
+                Hassle-free returns within 7–10 days, no questions asked.
+                Simplified process.
+              </p>
+              <span class="service-tag">Seamless Flow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="service-icon">🔒</div>
+              <h3>Secure Payments</h3>
+              <div class="glow-line"></div>
+            </div>
+            <div class="card-back">
+              <p>
+                Multiple payment options including UPI, cards, and COD with
+                256-bit encryption.
+              </p>
+              <span class="service-tag">Safe Protocol</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="service-icon">📞</div>
+              <h3>24/7 Support</h3>
+              <div class="glow-line"></div>
+            </div>
+            <div class="card-back">
+              <p>
+                Always here to help via chat, email, or call. Global assistance
+                network.
+              </p>
+              <span class="service-tag">Always Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="advanced-services">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Advanced <span class="lawn-green-text">Solutions</span>
+        </h2>
+      </div>
+
+      <div class="adv-container">
+        <div class="adv-card">
+          <div class="adv-img">
+            <img
+              src="./Assets/AI_11zon_11zon.webp"
+              alt="AI Tech"
+            />
+          </div>
+          <div class="adv-content">
+            <div class="adv-icon">🤖</div>
+            <h3>Smart Recommendations</h3>
+            <p>
+              Personalized product suggestions driven by our proprietary AI,
+              tailored to your unique preferences.
+            </p>
+            <div class="adv-border"></div>
+          </div>
+        </div>
+
+        <div class="adv-card">
+          <div class="adv-img">
+            <img
+              src="./Assets/warrenty protection_11zon.webp"
+              alt="Security"
+            />
+          </div>
+          <div class="adv-content">
+            <div class="adv-icon">🛡️</div>
+            <h3>Warranty Protection</h3>
+            <p>
+              Comprehensive extended warranty for all electronics and gadgets.
+              Total peace of mind for every purchase.
+            </p>
+            <div class="adv-border"></div>
+          </div>
+        </div>
+
+        <div class="adv-card">
+          <div class="adv-img">
+            <img
+              src="./Assets/Logistics & Logistics_11zon_11zon.webp"
+              alt="Logistics"
+            />
+          </div>
+          <div class="adv-content">
+            <div class="adv-icon">📦</div>
+            <h3>Bulk Orders</h3>
+            <p>
+              Exclusive pricing tiers and dedicated account management for
+              business and wholesale acquisitions.
+            </p>
+            <div class="adv-border"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="process-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          The <span class="lawn-green-text">Flow</span>
+        </h2>
+      </div>
+
+      <div class="process-wrapper">
+        <div class="process-line-bg">
+          <div class="process-line-progress"></div>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-node" data-step="1">
+            <div class="step-icon-wrap">
+              <span class="step-icon">🔍</span>
+              <div class="step-number">01</div>
+            </div>
+            <div class="step-info">
+              <h3>Browse Products</h3>
+              <p>
+                Explore our curated gallery of next-gen hardware and premium
+                electronics.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-node" data-step="2">
+            <div class="step-icon-wrap">
+              <span class="step-icon">🛒</span>
+              <div class="step-number">02</div>
+            </div>
+            <div class="step-info">
+              <h3>Add to Cart</h3>
+              <p>
+                Configure your setup and secure your selections in our immersive
+                interface.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-node" data-step="3">
+            <div class="step-icon-wrap">
+              <span class="step-icon">💳</span>
+              <div class="step-number">03</div>
+            </div>
+            <div class="step-info">
+              <h3>Secure Checkout</h3>
+              <p>
+                Finalize your acquisition with 256-bit encrypted payment
+                protocols.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-node" data-step="4">
+            <div class="step-icon-wrap">
+              <span class="step-icon">🚀</span>
+              <div class="step-number">04</div>
+            </div>
+            <div class="step-info">
+              <h3>Fast Delivery</h3>
+              <p>
+                Experience ultra-low latency logistics from our hub to your
+                doorstep.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="standout-section">
+      <div class="parallax-bg-wrapper">
+        <div class="parallax-glow-grid"></div>
+      </div>
+
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Why We <span class="lawn-green-text">Dominate</span>
+        </h2>
+      </div>
+
+      <div class="standout-grid">
+        <div class="feature-block" data-feature="1">
+          <div class="feature-icon-wrap">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-glow"></div>
+          </div>
+          <div class="feature-text">
+            <h3>Lightning-Fast Delivery</h3>
+            <p>
+              Ultra-low latency logistics ensures our premium hardware reaches
+              your door within 48 hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-block" data-feature="2">
+          <div class="feature-icon-wrap">
+            <span class="feature-icon">👥</span>
+            <div class="feature-glow"></div>
+          </div>
+          <div class="feature-text">
+            <h3>Trusted by Thousands</h3>
+            <p>
+              Join a community of 50k+ technology professionals who rely on our
+              platform for efficiency.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-block" data-feature="3">
+          <div class="feature-icon-wrap">
+            <span class="feature-icon">💎</span>
+            <div class="feature-glow"></div>
+          </div>
+          <div class="feature-text">
+            <h3>Premium Product Quality</h3>
+            <p>
+              Every piece of hardware is subjected to 24-hour diagnostic stress
+              testing before dispatch.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-block" data-feature="4">
+          <div class="feature-icon-wrap">
+            <span class="feature-icon">🎧</span>
+            <div class="feature-glow"></div>
+          </div>
+          <div class="feature-text">
+            <h3>Dedicated Support Team</h3>
+            <p>
+              24/7 technical expertise available via instant chat, ensuring your
+              setup never compromises.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-header">
+        <h2 class="gradient-title">
+          Verified <span class="lawn-green-text">Feedback</span>
+        </h2>
+      </div>
+
+      <div class="testimonial-wrapper">
+        <div class="testimonial-track">
+          <div class="testi-card">
+            <div class="testi-rating">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+            <p class="testi-quote">
+              “Super fast delivery and amazing service! The packaging felt
+              premium and the tracking was precise.”
+            </p>
+            <div class="testi-user">
+              <img
+                src="./Assets/t1.webp"
+                alt="User"
+              />
+              <div class="user-info">
+                <h4>Priya K.</h4>
+                <span>Verified Tech Buyer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-rating">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+            <p class="testi-quote">
+              “The 24/7 support team helped me configure my pro setup in
+              minutes. Best service in the industry.”
+            </p>
+            <div class="testi-user">
+              <img
+                src="./Assets/t3.webp"
+                alt="User"
+              />
+              <div class="user-info">
+                <h4>Arjun M.</h4>
+                <span>Creative Director</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="cta-glow-aura"></div>
+      <div class="cta-content">
+        <h2 class="cta-title">
+          Need Help? We’re <span class="lawn-green-text">Always</span> Here.
+        </h2>
+        <p class="cta-subtitle">
+          Our dedicated engineering support team is available 24/7 to solve your
+          technical queries.
+        </p>
+        <a href="./error.html" class="btn-cta-glow">
+          <span>Contact Us</span>
+          <div class="btn-aura"></div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand gsap-contact">
+          <div class="logo" style="margin-bottom: 20px">
+            <a href="./index.html">
+              <img
+                src="./Assets/logo.webp"
+                alt="Logo"
+                style="max-width: 180px"
+              />
+            </a>
+          </div>
+
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership and unlock a world of unlimited movies, TV shows, and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-links gsap-contact">
+          <h4>Quick Links</h4>
+
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./login.html">Login</a>
+        </div>
+        <!-- <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="./about.html">About</a>
+          <a href="./service.html">Services</a>
+          <a href="./blog.html">Blog</a>
+        </div> -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>
+            Enter your email to create or restart your membership and unlock a
+            world of unlimited movies, TV shows, and more.
+          </p>
+          <form action="./error.html">
+            <div class="news-input">
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">→</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Innovations. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="./error.html">Privacy Policy</a>
+          <a href="./error.html">ISO Compliance</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: "ease-out-cubic",
+    startEvent: "aos:ready", // manual trigger
+  });
+</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const tl = gsap.timeline();
+
+    // 1. Initial Reset
+    gsap.set(".hero-content > *", { opacity: 0, y: 30 });
+    gsap.set(".float-icon", { opacity: 0, scale: 0.5 });
+
+    // 2. Entrance Sequence
+    tl.to(".hero-content > *", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power4.out",
+    }).to(
+      ".float-icon",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+      },
+      "-=0.5",
+    );
+
+    // 3. Subtle Floating Loop for Icons
+    gsap.to(".float-icon", {
+      y: "random(-20, 20)",
+      x: "random(-10, 10)",
+      rotation: "random(-10, 10)",
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.5,
+    });
+
+    // 4. Moving Glow Orbs
+    gsap.to(".glow-orb", {
+      x: "random(-50, 50)",
+      y: "random(-50, 50)",
+      duration: 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+  });
+</script>
+
+<!-- 2 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // Fade cards in from the bottom with a Lawn Green glow flicker
+    gsap.fromTo(
+      ".service-card",
+      {
+        opacity: 1,
+        y: 40,
+        scale: 0.95,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".services-container",
+          start: "top 85%",
+        },
+      },
+    );
+
+    // Infinite subtle pulse for the glow-line
+    gsap.to(".glow-line", {
+      width: "60%",
+      opacity: 0.5,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  });
+</script>
+<!-- section header -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const headerTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-header",
+        start: "top 85%", // Triggers when the header is 85% from the top
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    headerTimeline
+      // 1. Slide and Fade In the entire title
+      .to(".gradient-title", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power4.out",
+      });
+  });
+</script>
+
+<!-- 3 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    gsap.fromTo(
+      ".adv-card",
+      {
+        opacity: 1,
+        y: 60,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".adv-container",
+          start: "top 80%",
+        },
+      },
+    );
+  });
+</script>
+
+<!-- 4 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const steps = document.querySelectorAll(".step-node");
+    const progressLine = document.querySelector(".process-line-progress");
+
+    // 1. Entrance Fade & Slide
+    gsap.to(steps, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".process-wrapper",
+        start: "top 80%",
+      },
+    });
+
+    // 2. Line Animation (Scrubbed)
+    gsap.to(progressLine, {
+      width: "100%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".process-wrapper",
+        start: "top 60%",
+        end: "bottom 80%",
+        scrub: 1, // Makes the line fill as you scroll
+      },
+    });
+
+    // 3. Icon "Activation" Trigger
+    steps.forEach((step, index) => {
+      ScrollTrigger.create({
+        trigger: step,
+        start: "top 70%",
+        onEnter: () => step.classList.add("active"),
+        onLeaveBack: () => step.classList.remove("active"),
+      });
+    });
+  });
+</script>
+
+<!-- 5 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Function: Parallax Scrubber for the Background Mesh
+    const initParallax = () => {
+      // Reveal the background first
+      gsap.to(".parallax-bg-wrapper", {
+        opacity: 1,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: ".standout-section",
+          start: "top 80%",
+        },
+      });
+
+      // Handle the parallax movement (move at a different speed than content)
+      gsap.to(".parallax-glow-grid", {
+        y: 100, // Moves 100px slower than the user scrolls
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".standout-section",
+          start: "top bottom", // Starts when top of section enters viewport
+          end: "bottom top", // Ends when bottom of section leaves viewport
+          scrub: true, // Locks animation progress to scroll depth
+        },
+      });
+    };
+
+    // 2. Function: Feature Block Staggered Entrance
+    const initBlockEntrance = () => {
+      gsap.fromTo(
+        ".feature-block",
+        {
+          opacity: 0,
+          y: 40,
+          scale: 0.95,
+          rotateX: -10,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".standout-grid",
+            start: "top 75%", // Triggers when the grid enters the lower half of the screen
+            toggleActions: "play none none reverse",
+          },
+          onStart: initIconFlicker, // Trigger the flicker at the start of entrance
+        },
+      );
+    };
+
+    // 3. Function: Icon "Power Surge" Flicker on Entrance
+    const initIconFlicker = () => {
+      gsap.fromTo(
+        ".feature-icon",
+        {
+          color: "#1a1a1a", // Start dark/off
+          textShadow: "0 0 0px #7cfc00",
+        },
+        {
+          color: "#fff",
+          textShadow: "0 0 20px #7cfc00, 0 0 10px #7cfc00",
+          duration: 0.1,
+          stagger: 0.2,
+          repeat: 4, // Flickers on/off
+          yoyo: true,
+          ease: "rough({ template: none, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false })",
+        },
+      );
+    };
+
+    // Run the initialization sequence
+    initParallax();
+    initBlockEntrance();
+  });
+</script>
+
+<!-- 6 , 7 -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    // 1. Function: Initialize Testimonial Stagger
+    const initTestimonials = () => {
+      gsap.fromTo(
+        ".testi-card",
+        { opacity: 0, x: 100, scale: 0.9 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: ".testimonial-wrapper",
+            start: "top 75%",
+          },
+        },
+      );
+    };
+
+    // 2. Function: Initialize CTA Banner Reveal & Aura Pulse
+    const initCTABanner = () => {
+      // Content Entrance
+      gsap.to(".cta-content", {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: ".cta-banner",
+          start: "top 80%",
+        },
+      });
+
+      // Background Aura Breathing Loop
+      gsap.to(".cta-glow-aura", {
+        scale: 1.2,
+        opacity: 0.15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    };
+
+    // Run initializations
+    initTestimonials();
+    initCTABanner();
+  });
+</script>
